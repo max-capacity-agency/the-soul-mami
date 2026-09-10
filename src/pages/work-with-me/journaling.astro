@@ -1,0 +1,137 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="The Journaling Mastermind — The Soul Mami" description="A monthly journaling mastermind with Eliana Reyes — first Sunday of every month. Pen, paper, good company, and your own inner voice.">
+
+  <!-- Beat: Invitation -->
+  <section class="section hero">
+    <div class="wrap grid-2" style="align-items:center;">
+      <div>
+        <span class="eyebrow">First Sunday · Monthly</span>
+        <h1>The Journaling <em class="soul">Mastermind</em></h1>
+        <p class="lead">
+          Once a month, we gather with pens, paper, and zero
+          performance. You'll write your way underneath the noise and
+          meet what's actually true for you — in the company of people
+          doing the same.
+        </p>
+        <div class="cta-row">
+          <!-- TODO: replace with real signup/checkout link from Eliana -->
+          <a class="btn btn--primary" href="/lets-talk/">Save my seat</a>
+          <a class="btn btn--ghost" href="#how">How it works</a>
+        </div>
+      </div>
+      <div class="photo-ph photo-ph--arch" role="img" aria-label="Journaling circle (photo coming)" style="min-height:400px;"><span>Circle photo here</span></div>
+    </div>
+  </section>
+
+  <!-- Beat: Reality -->
+  <section class="section section--sand">
+    <div class="wrap prose">
+      <span class="eyebrow">Why Journaling</span>
+      <h2>Your inner voice isn't gone. It's buried.</h2>
+      <p class="lead">
+        Under the to-do lists, the roles, the shoulds, and everyone
+        else's opinions, there's a voice that knows exactly who you are
+        and what you need. Journaling is the shovel.
+      </p>
+      <p>
+        Alone, most of us journal for three days and quit — or circle
+        the same page of surface thoughts. In a circle, with real
+        prompts and real humans, something else happens. You go
+        deeper, you stay honest, and you keep coming back. That's the
+        mastermind part: we hold each other to our own depth.
+      </p>
+    </div>
+  </section>
+
+  <!-- Beat: Process -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="prose center" style="margin-inline:auto;">
+        <span class="eyebrow">The Flow</span>
+        <h2>What a Sunday looks like</h2>
+      </div>
+      <div class="grid-3" style="margin-top:2.5rem;">
+        <div class="card">
+          <span class="step-num">01</span>
+          <h3>We land</h3>
+          <p>We arrive, breathe, and drop out of the week's noise together. No performing, no small talk required.</p>
+        </div>
+        <div class="card">
+          <span class="step-num">02</span>
+          <h3>We write</h3>
+          <p>I guide you through prompts built around the month's theme — know yourself, be with yourself, live as yourself.</p>
+        </div>
+        <div class="card">
+          <span class="step-num">03</span>
+          <h3>We share</h3>
+          <p>Only what you want, only if you want. Being witnessed is medicine; so is witnessing. You leave lighter, clearer, and more you.</p>
+        </div>
+      </div>
+      <!-- TODO: session length, time zone, location (virtual/in-person), price, and platform details from Eliana -->
+      <p class="center muted" style="margin-top:2rem;">First Sunday of every month. Full details land in your inbox when you join the garden or reach out.</p>
+    </div>
+  </section>
+
+  <!-- Beat: Proof -->
+  <section class="section section--sand">
+    <div class="wrap prose center">
+      <span class="eyebrow">From the Circle</span>
+      <h2>What people say after they write</h2>
+      <!-- TODO: real testimonials from mastermind participants -->
+      <p class="lead muted">Testimonials from circle members are on their way — this space is reserved for their words, not mine.</p>
+    </div>
+  </section>
+
+  <!-- Beat: Questions -->
+  <section class="section">
+    <div class="wrap prose">
+      <span class="eyebrow">Questions</span>
+      <h2>Wondering…</h2>
+      <details>
+        <summary>Do I need to be "a writer"?</summary>
+        <p>Nope. If you can hold a pen and tell yourself the truth, you're qualified. Grammar is not invited to this circle.</p>
+      </details>
+      <details>
+        <summary>What if I don't want to share out loud?</summary>
+        <p>Then you don't. Sharing is always an invitation, never a requirement. Some of the deepest sessions are the quietest ones.</p>
+      </details>
+      <details>
+        <summary>I've never journaled consistently. Is this still for me?</summary>
+        <p>Especially for you. The circle is the consistency. You just have to show up one Sunday a month — the momentum takes care of itself.</p>
+      </details>
+      <details>
+        <summary>What do I need to bring?</summary>
+        <p>A notebook, a pen you like, and whatever's true for you that day. That's the whole kit.</p>
+      </details>
+      <div class="cta-row" style="margin-top:2rem;">
+        <a class="btn btn--primary" href="/lets-talk/">Save my seat</a>
+        <a class="btn btn--ghost" href="/garden/">Get the next invite by email</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
+  .step-num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--honey);
+    letter-spacing: 0.1em;
+  }
+  details {
+    border-bottom: 1px solid var(--sand-deep);
+    padding-block: 0.9rem;
+  }
+  summary {
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    color: var(--espresso);
+  }
+  details p { margin-top: 0.7rem; margin-bottom: 0.3rem; }
+</style>

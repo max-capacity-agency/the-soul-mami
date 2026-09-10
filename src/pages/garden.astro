@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Bee from '../components/Bee.astro';
+---
+<Base title="Join my Garden — The Soul Mami" hideGarden={true} description="Join Eliana's garden — letters with journal entries, new songs, free tools for self-connection, and first word on the next journaling mastermind.">
+
+  <section class="section garden-hero honeycomb">
+    <div class="wrap prose center">
+      <span class="eyebrow">The Garden</span>
+      <h1>Get planted, <em class="soul">mami</em></h1>
+      <p class="lead">
+        The garden is my email list — but it doesn't feel like one.
+        It's letters from me to you: fresh journal entries, new songs
+        before anyone else hears them, tools for self-connection, and
+        first word on the next mastermind.
+      </p>
+      <ul class="garden-list">
+        <li>One or two letters a month. That's it.</li>
+        <li>Real words from a real human — never automated noise.</li>
+        <li>First access to masterminds, music, and goodies.</li>
+        <li>Leave anytime. The gate never locks.</li>
+      </ul>
+      <!-- TODO: point this form at Eliana's email platform (action URL + field names). Netlify Forms captures signups until then. -->
+      <form class="garden-form" name="garden" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="garden" />
+        <label class="visually-hidden" for="garden-page-email">Email address</label>
+        <input id="garden-page-email" type="email" name="email" placeholder="Your email, mami" required />
+        <button class="btn btn--primary" type="submit">Plant me in</button>
+      </form>
+      <div style="margin-top:2rem;"><Bee size={34} /></div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .garden-hero { padding-block: clamp(4rem, 10vw, 7rem); }
+  .garden-list {
+    list-style: none;
+    margin: 1.5rem auto 2rem;
+    padding: 0;
+    max-width: 30rem;
+    text-align: left;
+  }
+  .garden-list li {
+    padding: 0.55rem 0 0.55rem 1.8rem;
+    position: relative;
+  }
+  .garden-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--honey);
+  }
+  .garden-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+  .garden-form input { flex: 1; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    .garden-form { flex-direction: column; }
+  }
+</style>

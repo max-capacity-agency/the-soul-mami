@@ -1,0 +1,357 @@
+---
+import Base from '../layouts/Base.astro';
+import Bee from '../components/Bee.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('journal'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+<Base title="The Soul Mami — You are your own missing piece">
+
+  <!-- Beat: Welcome -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Hola, welcome home</span>
+        <h1>You are your own <em class="soul">missing piece.</em></h1>
+        <p class="lead">
+          I'm Eliana — mentor, facilitator, music maker, professional
+          feeler of feelings. Everything here exists for one reason:
+          to help you get back in a healthy, loving marriage with
+          yourself. Mind, body, and soul.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn--primary" href="/garden/">Join my Garden</a>
+          <a class="btn btn--ghost" href="#doorways">Open the drawers</a>
+        </div>
+        <ul class="trust-bullets">
+          <li>TEDx speaker</li>
+          <li>Author of two books</li>
+          <li>200+ circles &amp; workshops facilitated</li>
+        </ul>
+      </div>
+      <div class="hero-photo">
+        <!-- TODO: replace with Eliana's hero photo -->
+        <div class="photo-ph photo-ph--arch" role="img" aria-label="Portrait of Eliana Reyes (photo coming)">
+          <span>Eliana's photo here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Proof -->
+  <section class="statbar">
+    <div class="wrap stats">
+      <div><strong>200+</strong><span>circles, cohorts &amp; workshops</span></div>
+      <div><strong>2</strong><span>books written</span></div>
+      <div><strong>1</strong><span>TEDx talk</span></div>
+      <div><strong>&infin;</strong><span>emotions alchemized</span></div>
+    </div>
+  </section>
+
+  <!-- Beat: The Loop -->
+  <section class="section">
+    <div class="wrap prose">
+      <span class="eyebrow">The Loop</span>
+      <h2>You're not broken. You're just wearing somebody else's outfit.</h2>
+      <p class="lead">Tell me if this sounds familiar:</p>
+      <ul class="loop-list">
+        <li>You're smart. Deeply intelligent. And somehow that person barely shows up in the outside world.</li>
+        <li>You've been performing a version of you for so long — the achiever, the strong one, the easy one — that you're not sure where the costume ends.</li>
+        <li>You keep circling the same loops: the same doubts, the same shrinking, the same "one day I'll finally…"</li>
+        <li>You don't need another guru. You've had enough people talking <em>at</em> you from a pedestal.</li>
+      </ul>
+      <p>
+        Here's the thing nobody told you: there is nothing missing and
+        nothing wrong with you. The work isn't adding more. It's taking
+        off the layers that were never yours — and letting what's
+        underneath finally speak.
+      </p>
+    </div>
+  </section>
+
+  <!-- Beat: The Remembering -->
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">The Remembering</span>
+        <h2>Three vows to yourself</h2>
+        <p class="lead">
+          Everything I create — every circle, every song, every journal
+          prompt — revolves around three pillars. Think of them as vows
+          in the most important marriage you'll ever be in.
+        </p>
+      </div>
+      <div class="grid-3 pillars">
+        <div class="card">
+          <span class="pillar-num">01</span>
+          <h3>Know yourself</h3>
+          <p>Meet the you underneath the roles. Get honest about what you feel, what you want, and what you've been avoiding. Your inner intelligence has been waiting.</p>
+        </div>
+        <div class="card">
+          <span class="pillar-num">02</span>
+          <h3>Be with yourself</h3>
+          <p>Build the relationship. Sit with your emotions instead of outrunning them — every single one carries a lesson, and you can learn to alchemize them all.</p>
+        </div>
+        <div class="card">
+          <span class="pillar-num">03</span>
+          <h3>Live as yourself</h3>
+          <p>Express, create, and move through the world as the real you. There's stuff only you came here to say — and we need to see it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Doorways -->
+  <section class="section" id="doorways">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">Doorways</span>
+        <h2>Three drawers. Open whichever one calls you.</h2>
+        <p class="lead">Different doors, same room: you, coming home to you.</p>
+      </div>
+      <div class="grid-3">
+        <a class="card drawer" href="/work-with-me/journaling/">
+          <div class="drawer-ph" aria-hidden="true">📓</div>
+          <h3>The Journaling Mastermind</h3>
+          <p>First Sunday of every month, we gather, we write, we get real. Pen and paper as a doorway to your own inner voice — in very good company.</p>
+          <span class="drawer-link">Come write with us &rarr;</span>
+        </a>
+        <a class="card drawer" href="/work-with-me/mentoring/">
+          <div class="drawer-ph" aria-hidden="true">🕯️</div>
+          <h3>1:1 Mentoring</h3>
+          <p>You and me, working through what's actually going on. Bring any emotion — I'm an emotional alchemist; we'll transmute it and get the lesson.</p>
+          <span class="drawer-link">Work with me &rarr;</span>
+        </a>
+        <a class="card drawer" href="/work-with-me/music/">
+          <div class="drawer-ph" aria-hidden="true">🎶</div>
+          <h3>The Music</h3>
+          <p>Songs from the same soul, another way in. Sometimes a melody reaches the places a conversation can't.</p>
+          <span class="drawer-link">Press play &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Lineage -->
+  <section class="section section--dark">
+    <div class="wrap grid-2 lineage">
+      <div>
+        <!-- TODO: replace with Eliana lifestyle/portrait photo -->
+        <div class="photo-ph photo-ph--arch" role="img" aria-label="Eliana Reyes (photo coming)">
+          <span>Photo here</span>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Lineage</span>
+        <h2>I come from beekeepers, farmers, and storytellers.</h2>
+        <p class="lead">
+          Which means I carry a deep respect for cycles, for organic
+          intelligence, and for the wisdom that lives within us and all
+          around us.
+        </p>
+        <p>
+          I'm not here to be your guru. I'm a life-liver — highly
+          curious, wildly in love with the human experience, and very
+          comfortable in the emotional deep end. I believe people
+          aren't machines. We learn through story, movement,
+          relationship, reflection, and play.
+        </p>
+        <p>
+          At the center of everything I make is one question:
+          <em class="soul">how can we feel more alive?</em>
+        </p>
+        <a class="btn btn--ghost" href="/about/">Read my story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Listen -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">Listen</span>
+        <h2>Songs for the journey home</h2>
+        <p class="lead">Music is medicine I make. A new song is on its way — plant yourself in the garden to hear it first.</p>
+      </div>
+      <div class="grid-2 tracks">
+        <iframe
+          title="Listen on Spotify — track one"
+          src="https://open.spotify.com/embed/track/2ybpZWpAaFt0XiwCFNeltB"
+          width="100%" height="152" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+        <iframe
+          title="Listen on Spotify — track two"
+          src="https://open.spotify.com/embed/track/7CoNuwBPZTLeqnS7lMdR6L"
+          width="100%" height="152" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Words -->
+  <section class="section section--sand">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">Words</span>
+        <h2>From my journal</h2>
+        <p class="lead">
+          Not a blog. Just me, sharing the human experience as I live
+          it — the messy, the holy, the hilarious. Take your time in
+          here.
+        </p>
+      </div>
+      <div class="grid-3">
+        {entries.map((e) => (
+          <a class="card entry" href={`/journal/${e.id}/`}>
+            <p class="muted entry-date">{fmt(e.data.date)}</p>
+            <h3>{e.data.title}</h3>
+            <p>{e.data.excerpt}</p>
+            <span class="drawer-link">Keep reading &rarr;</span>
+          </a>
+        ))}
+      </div>
+      <p class="center" style="margin-top: 2rem;">
+        <a class="btn btn--ghost" href="/journal/">Wander the archives</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Beat: Rooms -->
+  <section class="section rooms">
+    <div class="wrap rooms-inner">
+      <div>
+        <span class="eyebrow">Rooms</span>
+        <h2 style="margin-bottom:0.4em;">Bringing this to your people?</h2>
+        <p class="lead" style="margin-bottom:0;">
+          I facilitate cohorts, workshops, and keynotes for teams,
+          retreats, and gatherings that want their humans more alive.
+        </p>
+      </div>
+      <a class="btn btn--primary" href="/lets-talk/">Let's talk <Bee size={18} /></a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* Hero */
+  .hero { padding-block: clamp(3.5rem, 8vw, 6.5rem) var(--space-section); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-block: 1.8rem; }
+  .trust-bullets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--stone);
+  }
+  .trust-bullets li { display: flex; align-items: center; gap: 0.5rem; }
+  .trust-bullets li::before { content: "✦"; color: var(--honey); }
+  .hero-photo .photo-ph { min-height: 420px; }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo .photo-ph { min-height: 300px; }
+  }
+
+  /* Stat bar */
+  .statbar { background: var(--espresso); color: var(--cream); padding-block: 1.6rem; }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+  .stats strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: var(--amber);
+  }
+  .stats span { font-size: 0.88rem; color: #cbb99f; }
+  @media (max-width: 700px) {
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  }
+
+  /* Loop list */
+  .loop-list { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+  .loop-list li {
+    padding: 0.9rem 0 0.9rem 2rem;
+    position: relative;
+    border-bottom: 1px solid var(--sand-deep);
+    font-size: 1.08rem;
+  }
+  .loop-list li::before {
+    content: "↻";
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+    font-weight: 700;
+  }
+
+  /* Pillars */
+  .pillars { margin-top: 2.5rem; }
+  .pillar-num {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--honey);
+    letter-spacing: 0.1em;
+  }
+  .pillars h3 { margin-top: 0.4rem; }
+
+  /* Drawers */
+  #doorways .grid-3 { margin-top: 2.5rem; }
+  .drawer { text-decoration: none; color: inherit; display: block; }
+  .drawer-ph {
+    font-size: 2rem;
+    width: 62px;
+    height: 62px;
+    display: grid;
+    place-items: center;
+    background: var(--sand);
+    border-radius: 50%;
+    margin-bottom: 1.1rem;
+  }
+  .drawer-link { color: var(--clay); font-weight: 700; }
+  .drawer:hover .drawer-link { color: var(--clay-deep); }
+
+  /* Lineage */
+  .lineage { align-items: center; }
+  .lineage .photo-ph { min-height: 420px; }
+
+  /* Tracks */
+  .tracks { margin-top: 2.5rem; align-items: center; }
+  .tracks iframe { border-radius: 14px; border: 0; }
+
+  /* Journal teaser */
+  .entry { text-decoration: none; color: inherit; display: block; }
+  .entry-date { font-size: 0.85rem; margin-bottom: 0.4rem; }
+  .section--sand .grid-3 { margin-top: 2.5rem; }
+
+  /* Rooms */
+  .rooms { padding-block: 3.5rem; background: var(--cream-light); border-block: 1px solid var(--sand-deep); }
+  .rooms-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .rooms .btn { display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+</style>

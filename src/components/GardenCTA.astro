@@ -1,0 +1,61 @@
+---
+import Bee from './Bee.astro';
+---
+<section class="section section--dark garden" id="garden">
+  <div class="wrap center prose">
+    <span class="eyebrow">Stay Close</span>
+    <h2>Join my Garden</h2>
+    <p class="lead">
+      Letters from me to you — journal entries, new songs, tools for
+      self-connection, and first word on the next mastermind. No noise,
+      no spam. Just honey.
+    </p>
+    <!-- TODO: point this form at Eliana's email platform (action URL + field names). Netlify Forms captures signups until then. -->
+    <form class="garden-form" name="garden" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="garden" />
+      <label class="visually-hidden" for="garden-email">Email address</label>
+      <input id="garden-email" type="email" name="email" placeholder="Your email, mami" required />
+      <button class="btn btn--honey" type="submit">Plant me in</button>
+    </form>
+    <p class="muted small">One or two letters a month. Leave whenever you want — the garden gate is always open.</p>
+    <div class="bee-mark"><Bee size={30} /></div>
+  </div>
+</section>
+
+<style>
+  .garden { position: relative; overflow: hidden; }
+  .garden::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='97' viewBox='0 0 56 97' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23e8b34b' stroke-opacity='0.09' stroke-width='1.4'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16z'/%3E%3Cpath d='M28 64l28 16v17H0V80z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 56px 97px;
+    pointer-events: none;
+  }
+  .garden .wrap { position: relative; }
+  .garden-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 30rem;
+    margin: 1.75rem auto 1rem;
+  }
+  .garden-form input {
+    flex: 1;
+    background: rgba(253, 250, 243, 0.08);
+    border-color: rgba(243, 212, 138, 0.35);
+    color: var(--cream);
+  }
+  .garden-form input::placeholder { color: #b9a78d; }
+  .small { font-size: 0.9rem; }
+  .bee-mark { margin-top: 1.5rem; opacity: 0.85; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  @media (max-width: 560px) {
+    .garden-form { flex-direction: column; }
+  }
+</style>

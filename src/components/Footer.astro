@@ -1,0 +1,73 @@
+---
+import Bee from './Bee.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="brand">
+      <a class="logo" href="/"><Bee size={24} /> <span>The Soul Mami</span></a>
+      <p class="muted">
+        Tools, songs, and honest words for coming home to yourself.
+        From a lineage of beekeepers, farmers, and storytellers.
+      </p>
+    </div>
+    <nav aria-label="Footer">
+      <h3>Wander</h3>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/work-with-me/">Work With Me</a></li>
+        <li><a href="/journal/">Journal</a></li>
+        <li><a href="/goodies/">Goodies</a></li>
+        <li><a href="/lets-talk/">Let's Talk</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h3>Listen &amp; follow</h3>
+      <ul>
+        <!-- TODO: real profile URLs from Eliana -->
+        <li><a href="https://open.spotify.com/track/2ybpZWpAaFt0XiwCFNeltB" rel="noopener">Spotify</a></li>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+        <li><a href="#" rel="noopener">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p class="muted">© {year} The Soul Mami · Eliana Reyes. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--sand);
+    border-top: 1px solid var(--sand-deep);
+    padding-block: 3.5rem 1.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 640;
+    font-size: 1.15rem;
+    color: var(--espresso);
+  }
+  .brand p { margin-top: 0.9rem; max-width: 26rem; }
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+  }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { margin-bottom: 0.45rem; }
+  ul a { text-decoration: none; color: var(--bark); font-weight: 600; }
+  ul a:hover { color: var(--clay); }
+  .legal { margin-top: 2.5rem; font-size: 0.88rem; }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  }
+</style>

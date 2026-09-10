@@ -1,0 +1,120 @@
+---
+import Bee from './Bee.astro';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/work-with-me/', label: 'Work With Me' },
+  { href: '/journal/', label: 'Journal' },
+  { href: '/goodies/', label: 'Goodies' },
+  { href: '/lets-talk/', label: "Let's Talk" },
+];
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="The Soul Mami — home">
+      <Bee size={26} />
+      <span>The Soul Mami</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+          </li>
+        ))}
+        <li><a class="btn btn--honey nav-cta" href="/garden/">Join my Garden</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--cream) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--sand-deep);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.85rem;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 640;
+    font-size: 1.22rem;
+    letter-spacing: 0.01em;
+    color: var(--espresso);
+  }
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a:not(.nav-cta) {
+    text-decoration: none;
+    color: var(--bark);
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:not(.nav-cta):hover { color: var(--clay); }
+  nav a[aria-current='page'] { color: var(--clay); border-bottom-color: var(--honey); }
+  .nav-cta { padding: 0.55rem 1.25rem; font-size: 0.95rem; }
+
+  .nav-toggle { display: none; }
+  .nav-burger { display: none; }
+
+  @media (max-width: 960px) {
+    .nav-burger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-burger span {
+      width: 24px;
+      height: 2.5px;
+      background: var(--espresso);
+      border-radius: 2px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    nav { display: none; width: 100%; }
+    .bar { flex-wrap: wrap; }
+    .nav-toggle:checked ~ nav { display: block; }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+    .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      padding-block: 1rem;
+    }
+    nav a:not(.nav-cta) { display: block; padding: 0.5rem 0; font-size: 1.1rem; }
+    .nav-cta { margin-top: 0.5rem; }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Let's Talk — The Soul Mami" description="Reach out to Eliana Reyes — about mentoring, the journaling mastermind, facilitation, workshops, or speaking. No pitch, no pressure.">
+
+  <section class="section hero">
+    <div class="wrap grid-2" style="align-items:start; gap:3.5rem;">
+      <div>
+        <span class="eyebrow">Let's Talk</span>
+        <h1>Come say <em class="soul">hola</em></h1>
+        <p class="lead">
+          Whether you're curious about mentoring, want a seat at the
+          next mastermind, or you're an organization that wants its
+          humans more alive — this is the door. Knock anytime.
+        </p>
+        <p class="muted">
+          No pitch, no pressure, no salesy weirdness. You'll hear back
+          from me, the actual human.
+        </p>
+        <ul class="talk-list">
+          <li><strong>Mentoring</strong> — tell me a little about what's alive for you.</li>
+          <li><strong>The Mastermind</strong> — say "save me a seat" and I'll send the details.</li>
+          <li><strong>Facilitation &amp; speaking</strong> — share the event, the people, and the dream outcome.</li>
+          <li><strong>Anything else</strong> — songs, books, a good story. I'm here for it.</li>
+        </ul>
+      </div>
+
+      <form class="card talk-form" name="lets-talk" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="lets-talk" />
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="field">
+          <label for="topic">What's this about?</label>
+          <select id="topic" name="topic">
+            <option>1:1 Mentoring</option>
+            <option>The Journaling Mastermind</option>
+            <option>Facilitation / workshop / speaking</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Tell me what's on your heart</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Send it</button>
+      </form>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .talk-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .talk-list li {
+    padding: 0.7rem 0 0.7rem 1.8rem;
+    position: relative;
+    border-bottom: 1px solid var(--sand-deep);
+  }
+  .talk-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--honey);
+  }
+  .talk-form { display: grid; gap: 1.1rem; }
+  .talk-form:hover { transform: none; box-shadow: none; }
+  .field { display: grid; gap: 0.2rem; }
+</style>

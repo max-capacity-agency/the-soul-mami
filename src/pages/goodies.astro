@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Goodies — The Soul Mami" description="Free tools for self-connection from Eliana Reyes: journaling prompts, practices, and resources. Take what you need.">
+
+  <section class="section hero">
+    <div class="wrap prose center">
+      <span class="eyebrow">Free · Always</span>
+      <h1>Goodies from the <em class="soul">hive</em></h1>
+      <p class="lead">
+        Tools for self-connection, free for the taking. Start
+        anywhere. Take what you need, share what helps, come back for
+        more.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap grid-3">
+      <!-- TODO: swap these for Eliana's real freebies (PDFs, downloads, links) as they're ready -->
+      <div class="card">
+        <div class="icon" aria-hidden="true">📝</div>
+        <h3>Journaling prompts to meet yourself</h3>
+        <p>A starter set of the kinds of prompts we use in the mastermind — for the mornings you want to go deeper than "today I…".</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🎧</div>
+        <h3>The songs</h3>
+        <p>My music is a free tool too. Two songs live now, one in the hive. Press play while you write.</p>
+        <a class="tag tag--live" href="/work-with-me/music/">Listen now &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🎤</div>
+        <h3>The TEDx talk</h3>
+        <!-- TODO: embed TEDx video when Eliana sends the URL -->
+        <p>Me, on a stage, saying the thing I most want you to hear. The video will live right here.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">📚</div>
+        <h3>The books</h3>
+        <!-- TODO: book titles, covers, and purchase links from Eliana -->
+        <p>Two books so far, more life to write about. Titles and where to find them are landing here shortly.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🕯️</div>
+        <h3>An emotional first-aid practice</h3>
+        <p>What I actually do when a big feeling hits — the alchemist's short version, written down for you.</p>
+        <span class="tag">Coming soon</span>
+      </div>
+      <div class="card">
+        <div class="icon" aria-hidden="true">🌱</div>
+        <h3>Letters from the garden</h3>
+        <p>The best goodie is the ongoing one — journal entries, new tools, and first word on everything, straight to your inbox.</p>
+        <a class="tag tag--live" href="/garden/">Join free &rarr;</a>
+      </div>
+    </div>
+    <p class="center muted" style="margin-top:2.5rem;">
+      More goodies get added over time. That's the whole point of the drawers — keep coming back.
+    </p>
+  </section>
+
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .icon {
+    font-size: 1.8rem;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    background: var(--sand);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--stone);
+    background: var(--sand);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    text-decoration: none;
+  }
+  .tag--live { background: var(--gold-soft); color: var(--espresso); }
+  .tag--live:hover { background: var(--amber); color: var(--espresso); }
+</style>

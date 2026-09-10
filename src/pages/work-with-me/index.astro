@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Work With Me — The Soul Mami" description="Three doorways into the same work: the monthly Journaling Mastermind, 1:1 mentoring with Eliana Reyes, and her music. Plus facilitation and speaking for organizations.">
+
+  <!-- Beat: Promise -->
+  <section class="section hero">
+    <div class="wrap prose center">
+      <span class="eyebrow">Work With Me</span>
+      <h1>Come home to <em class="soul">yourself.</em></h1>
+      <p class="lead">
+        Everything here serves the same three vows: know yourself, be
+        with yourself, live as yourself. Pick the doorway that calls
+        you — they all lead to the same room.
+      </p>
+    </div>
+  </section>
+
+  <!-- Beat: Doorways -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap drawer-stack">
+
+      <a class="card drawer-row" href="/work-with-me/journaling/">
+        <div class="drawer-media photo-ph" role="img" aria-label="Journaling mastermind (photo coming)"><span>Photo</span></div>
+        <div>
+          <span class="eyebrow">Drawer One · Monthly</span>
+          <h2>The Journaling Mastermind</h2>
+          <p class="lead">
+            First Sunday of every month. We gather, we drop in, we
+            write our way past the noise and into the honest stuff —
+            together.
+          </p>
+          <span class="drawer-link">Come write with us &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card drawer-row drawer-row--flip" href="/work-with-me/mentoring/">
+        <div class="drawer-media photo-ph" role="img" aria-label="1:1 mentoring (photo coming)"><span>Photo</span></div>
+        <div>
+          <span class="eyebrow">Drawer Two · 1:1</span>
+          <h2>Mentoring</h2>
+          <p class="lead">
+            Just you and me, working through what's real. Untangling
+            the loops, alchemizing the emotions, and building your
+            self-trust back, session by session.
+          </p>
+          <span class="drawer-link">Start the conversation &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card drawer-row" href="/work-with-me/music/">
+        <div class="drawer-media photo-ph" role="img" aria-label="Eliana's music (artwork coming)"><span>Art</span></div>
+        <div>
+          <span class="eyebrow">Drawer Three · Anytime</span>
+          <h2>The Music</h2>
+          <p class="lead">
+            Songs from the same soul that holds the circles. Free,
+            always open, and waiting on your favorite streaming app.
+          </p>
+          <span class="drawer-link">Press play &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Beat: Rooms -->
+  <section class="section section--sand">
+    <div class="wrap grid-2" style="align-items:center;">
+      <div>
+        <span class="eyebrow">For Organizations</span>
+        <h2>Facilitation, workshops &amp; speaking</h2>
+        <p class="lead">
+          I've held 200+ circles, cohorts, and workshops — and a TEDx
+          stage. If your team, retreat, or gathering needs its humans
+          more connected and more alive, I'd love to hear about it.
+        </p>
+        <p>
+          Keynotes, custom workshops, multi-week cohorts, journaling
+          experiences for teams. We'll shape it together.
+        </p>
+        <a class="btn btn--primary" href="/lets-talk/">Let's talk</a>
+      </div>
+      <div class="photo-ph" role="img" aria-label="Eliana facilitating (photo coming)" style="min-height:340px;"><span>Facilitation photo here</span></div>
+    </div>
+  </section>
+
+  <!-- Beat: Fit -->
+  <section class="section">
+    <div class="wrap prose">
+      <span class="eyebrow">Real Talk</span>
+      <h2>Is this for you?</h2>
+      <p><strong>This is your place if</strong> you're ready to get honest, you suspect you're wearing identities that aren't yours, and you want a guide who walks beside you — not a guru with a pedestal and all the answers.</p>
+      <p><strong>This probably isn't your place if</strong> you want someone to fix you. Nothing here is about fixing, because you were never broken. If that sentence annoys you a little… interesting, right? Maybe start with the <a href="/journal/">journal</a> and see how it sits.</p>
+      <p class="muted">No pitch. No pressure. The gate's open either way.</p>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .drawer-stack { display: grid; gap: 2rem; }
+  .drawer-row {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 2.25rem;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  .drawer-row--flip { grid-template-columns: 1.15fr 0.85fr; }
+  .drawer-row--flip .drawer-media { order: 2; }
+  .drawer-media { min-height: 260px; }
+  .drawer-link { color: var(--clay); font-weight: 700; }
+  .drawer-row:hover .drawer-link { color: var(--clay-deep); }
+  @media (max-width: 860px) {
+    .drawer-row, .drawer-row--flip { grid-template-columns: 1fr; }
+    .drawer-row--flip .drawer-media { order: 0; }
+    .drawer-media { min-height: 200px; }
+  }
+</style>

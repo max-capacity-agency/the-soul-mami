@@ -1,0 +1,269 @@
+/* ==========================================================================
+   The Soul Mami — design tokens & base styles
+   Earthy warm: cream/sand ground, terracotta clay, honey-amber-gold accents.
+   ========================================================================== */
+
+:root {
+  /* Ground */
+  --cream: #faf5ec;
+  --cream-light: #fdfaf3;
+  --sand: #f2e8d5;
+  --sand-deep: #e9dcc3;
+
+  /* Earth */
+  --espresso: #2f2318;
+  --bark: #55432f;
+  --stone: #8a7660;
+
+  /* Accents */
+  --clay: #b5502e;
+  --clay-deep: #96401f;
+  --honey: #d9952b;
+  --amber: #e8b34b;
+  --gold-soft: #f3d48a;
+  --olive: #5f6844;
+  --olive-deep: #46512f;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Karla", -apple-system, "Segoe UI", sans-serif;
+
+  /* Rhythm */
+  --space-section: clamp(4.5rem, 10vw, 7.5rem);
+  --radius-card: 18px;
+  --radius-arch: 999px 999px 18px 18px;
+  --maxw: 1120px;
+  --maxw-text: 46rem;
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); }
+h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); }
+h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+
+p { margin: 0 0 1.1em; }
+
+a { color: var(--clay); text-underline-offset: 3px; }
+a:hover { color: var(--clay-deep); }
+
+em.soul {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 480;
+  color: var(--clay);
+}
+
+::selection { background: var(--gold-soft); color: var(--espresso); }
+
+/* Layout ------------------------------------------------------------------ */
+
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.section { padding-block: var(--space-section); }
+.section--sand { background: var(--sand); }
+.section--dark { background: var(--espresso); color: var(--cream); }
+.section--dark h2, .section--dark h3 { color: var(--cream); }
+.section--dark em.soul { color: var(--amber); }
+.section--dark a { color: var(--amber); }
+
+.prose { max-width: var(--maxw-text); }
+.center { text-align: center; margin-inline: auto; }
+
+/* Eyebrow — narrative beat label ------------------------------------------ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--honey);
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--honey);
+  border-radius: 2px;
+}
+.center .eyebrow::after {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--honey);
+  border-radius: 2px;
+}
+
+/* Buttons ------------------------------------------------------------------ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 0.9rem 1.9rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary { background: var(--clay); color: var(--cream-light); }
+.btn--primary:hover { background: var(--clay-deep); color: var(--cream-light); }
+
+.btn--honey { background: var(--honey); color: var(--espresso); }
+.btn--honey:hover { background: var(--amber); color: var(--espresso); }
+
+.btn--ghost { border-color: var(--espresso); color: var(--espresso); background: transparent; }
+.btn--ghost:hover { background: var(--espresso); color: var(--cream); }
+
+.section--dark .btn--ghost { border-color: var(--cream); color: var(--cream); }
+.section--dark .btn--ghost:hover { background: var(--cream); color: var(--espresso); }
+
+/* Cards -------------------------------------------------------------------- */
+
+.card {
+  background: var(--cream-light);
+  border: 1px solid var(--sand-deep);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -20px rgba(47, 35, 24, 0.35);
+}
+
+/* Grids -------------------------------------------------------------------- */
+
+.grid-3 { display: grid; gap: 1.5rem; grid-template-columns: repeat(3, 1fr); }
+.grid-2 { display: grid; gap: 2rem; grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 860px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Honeycomb texture (beekeeper lineage motif) ------------------------------ */
+
+.honeycomb {
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='97' viewBox='0 0 56 97' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d9952b' stroke-opacity='0.16' stroke-width='1.4'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16z'/%3E%3Cpath d='M28 64l28 16v17H0V80z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 97px;
+}
+
+/* Placeholder photo blocks (until Eliana's photos arrive) ------------------ */
+
+.photo-ph {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--amber) 0%, var(--honey) 42%, var(--clay) 100%);
+  border-radius: var(--radius-card);
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.photo-ph--arch { border-radius: var(--radius-arch); }
+.photo-ph::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='97' viewBox='0 0 56 97' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.22' stroke-width='1.4'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16z'/%3E%3Cpath d='M28 64l28 16v17H0V80z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 97px;
+}
+.photo-ph span {
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(253, 250, 243, 0.9);
+  padding: 1rem 1.25rem;
+}
+
+/* Forms -------------------------------------------------------------------- */
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--espresso);
+  background: var(--cream-light);
+  border: 1.5px solid var(--sand-deep);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  width: 100%;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--honey);
+  box-shadow: 0 0 0 3px rgba(217, 149, 43, 0.2);
+}
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Divider bee -------------------------------------------------------------- */
+
+.bee-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2.5rem auto;
+  color: var(--honey);
+}
+.bee-divider::before,
+.bee-divider::after {
+  content: "";
+  height: 1px;
+  width: min(90px, 20vw);
+  background: linear-gradient(to var(--dir, right), transparent, var(--honey));
+}
+.bee-divider::before { --dir: right; }
+.bee-divider::after { --dir: left; }
+
+/* Utility ------------------------------------------------------------------ */
+
+.lead { font-size: clamp(1.15rem, 2vw, 1.3rem); line-height: 1.6; }
+.muted { color: var(--stone); }
+.section--dark .muted { color: #cbb99f; }
+.mt-0 { margin-top: 0; }
