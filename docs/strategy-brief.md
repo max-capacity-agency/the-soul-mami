@@ -102,7 +102,7 @@ Earthy warm with honey: cream/sand foundation, terracotta and clay, **gold/amber
 
 1. Mastermind and mentoring: names, prices, session mechanics, signup/booking links (placeholders are marked in the build).
 2. Which email platform for Join my Garden (form is built, needs the provider action URL).
-3. Photo selects for hero, about, and the three drawer cards.
+3. ~~Photo selects~~ — delivered via Drive and integrated (Sept 2026).
 4. TEDx talk URL and book titles/links.
-5. 3-5 testimonials from mastermind/mentoring participants, ideally specific.
-6. First 2-3 journal entries to replace the placeholder entry.
+5. ~~Testimonials~~ — delivered (course, circle, and 1:1 quotes) and integrated. Video testimonials and raw footage from Drive are held back for now; they need YouTube/Vimeo hosting rather than static files.
+6. First 2-3 journal entries to replace the placeholder entries.

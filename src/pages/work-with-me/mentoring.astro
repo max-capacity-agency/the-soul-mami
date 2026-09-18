@@ -22,7 +22,7 @@ import Base from '../../layouts/Base.astro';
         </div>
         <p class="muted" style="margin-top:1rem;">No pitch. No pressure. Just a conversation to see if we fit.</p>
       </div>
-      <div class="photo-ph photo-ph--arch" role="img" aria-label="Eliana in conversation (photo coming)" style="min-height:400px;"><span>Photo here</span></div>
+      <img class="photo photo--arch" src="/images/eliana-river.jpg" alt="Eliana standing peacefully in a river, eyes closed, hand to her heart" fetchpriority="high" style="max-height:460px;" />
     </div>
   </section>
 
@@ -75,11 +75,25 @@ import Base from '../../layouts/Base.astro';
 
   <!-- Beat: Proof -->
   <section class="section section--sand">
-    <div class="wrap prose center">
-      <span class="eyebrow">Witnessed</span>
-      <h2>Words from people I've walked with</h2>
-      <!-- TODO: real mentoring testimonials -->
-      <p class="lead muted">This space is reserved for their words — coming soon.</p>
+    <div class="wrap">
+      <div class="prose center" style="margin-inline:auto;">
+        <span class="eyebrow">Witnessed</span>
+        <h2>Words from people I've walked with</h2>
+      </div>
+      <div class="grid-2" style="margin-top:2.5rem; max-width: 60rem; margin-inline:auto;">
+        <figure class="card quote">
+          <blockquote>
+            <p>"I said no two times today because I felt it in my gut, like you said I do, that it was a no for me. I went back and forth with my mind coming up with reasons why I could do something when I didn't want to at all. This insight you gave me is truly the gift that keeps on giving."</p>
+          </blockquote>
+          <figcaption>1:1 client</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote>
+            <p>"Thank you SO much for being you. You helped me click back in and anchor. Deeply needed. I'm already feeling refreshed."</p>
+          </blockquote>
+          <figcaption>1:1 client</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 

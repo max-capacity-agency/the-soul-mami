@@ -187,6 +187,17 @@ em.soul {
   background-size: 56px 97px;
 }
 
+/* Real photos --------------------------------------------------------------- */
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  box-shadow: 0 24px 60px -30px rgba(47, 35, 24, 0.45);
+}
+.photo--arch { border-radius: var(--radius-arch); }
+
 /* Placeholder photo blocks (until Eliana's photos arrive) ------------------ */
 
 .photo-ph {
@@ -216,6 +227,19 @@ em.soul {
   color: rgba(253, 250, 243, 0.9);
   padding: 1rem 1.25rem;
 }
+
+/* Testimonial quotes -------------------------------------------------------- */
+
+.quote { margin: 0; display: flex; flex-direction: column; }
+.quote blockquote { margin: 0 0 1rem; flex: 1; }
+.quote blockquote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  margin: 0;
+}
+.quote figcaption { font-weight: 700; font-size: 0.9rem; color: var(--stone); }
 
 /* Forms -------------------------------------------------------------------- */
 

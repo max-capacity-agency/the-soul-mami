@@ -35,10 +35,7 @@ const fmt = (d: Date) =>
         </ul>
       </div>
       <div class="hero-photo">
-        <!-- TODO: replace with Eliana's hero photo -->
-        <div class="photo-ph photo-ph--arch" role="img" aria-label="Portrait of Eliana Reyes (photo coming)">
-          <span>Eliana's photo here</span>
-        </div>
+        <img class="photo photo--arch" src="/images/eliana-hero.jpg" alt="Eliana Reyes laughing joyfully, face painted, surrounded by greenery" width="1400" height="1223" fetchpriority="high" />
       </div>
     </div>
   </section>
@@ -141,10 +138,7 @@ const fmt = (d: Date) =>
   <section class="section section--dark">
     <div class="wrap grid-2 lineage">
       <div>
-        <!-- TODO: replace with Eliana lifestyle/portrait photo -->
-        <div class="photo-ph photo-ph--arch" role="img" aria-label="Eliana Reyes (photo coming)">
-          <span>Photo here</span>
-        </div>
+        <img class="photo photo--arch" src="/images/eliana-gold.jpg" alt="Eliana in a yellow dress, laughing and blowing a kiss in golden light" loading="lazy" />
       </div>
       <div>
         <span class="eyebrow">Lineage</span>
@@ -166,6 +160,36 @@ const fmt = (d: Date) =>
           <em class="soul">how can we feel more alive?</em>
         </p>
         <a class="btn btn--ghost" href="/about/">Read my story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Witnessed -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">Witnessed</span>
+        <h2>Words from people who've been in the room</h2>
+      </div>
+      <div class="grid-3" style="margin-top:2.5rem;">
+        <figure class="card quote">
+          <blockquote>
+            <p>"Her course helped me first release broken past pieces of myself I didn't even know I was holding on to. She equipped me with tools and exercises that I STILL use and gave me the confidence to just be me."</p>
+          </blockquote>
+          <figcaption>Sarah Bramme · Awaken Your Soul course</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote>
+            <p>"Eliana empowers us with a radical responsibility to tap into our soul's purpose. She holds space while we deepen our understanding of ourselves and why we are here."</p>
+          </blockquote>
+          <figcaption>Annie Razcko · Awaken Your Soul course</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote>
+            <p>"I've realized that I have been operating as a robot in society. This course awakened me and showed me the importance of listening and following my heart."</p>
+          </blockquote>
+          <figcaption>Cid Marie Rosario · Awaken Your Soul course</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -220,6 +244,15 @@ const fmt = (d: Date) =>
       <p class="center" style="margin-top: 2rem;">
         <a class="btn btn--ghost" href="/journal/">Wander the archives</a>
       </p>
+    </div>
+  </section>
+
+  <!-- Beat: In Motion -->
+  <section class="strip" aria-label="Moments from Eliana's circles and gatherings">
+    <div class="strip-grid">
+      <img src="/images/community-1.jpg" alt="Four friends laughing together in a hillside hammock net" loading="lazy" />
+      <img src="/images/community-2.jpg" alt="Eliana and friends sharing food and smiles on a farm" loading="lazy" />
+      <img src="/images/community-3.jpg" alt="A group resting on mats outdoors at sunset during a workshop" loading="lazy" />
     </div>
   </section>
 
@@ -343,6 +376,22 @@ const fmt = (d: Date) =>
   .entry { text-decoration: none; color: inherit; display: block; }
   .entry-date { font-size: 0.85rem; margin-bottom: 0.4rem; }
   .section--sand .grid-3 { margin-top: 2.5rem; }
+
+  /* Community strip */
+  .strip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+  .strip-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  @media (max-width: 700px) {
+    .strip-grid { grid-template-columns: 1fr; }
+    .strip-grid img { height: 220px; }
+  }
 
   /* Rooms */
   .rooms { padding-block: 3.5rem; background: var(--cream-light); border-block: 1px solid var(--sand-deep); }

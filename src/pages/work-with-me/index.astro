@@ -21,7 +21,7 @@ import Base from '../../layouts/Base.astro';
     <div class="wrap drawer-stack">
 
       <a class="card drawer-row" href="/work-with-me/journaling/">
-        <div class="drawer-media photo-ph" role="img" aria-label="Journaling mastermind (photo coming)"><span>Photo</span></div>
+        <img class="photo drawer-media" src="/images/circle-night.jpg" alt="An evening gathering under a tree strung with warm lights" loading="lazy" />
         <div>
           <span class="eyebrow">Drawer One · Monthly</span>
           <h2>The Journaling Mastermind</h2>
@@ -35,7 +35,7 @@ import Base from '../../layouts/Base.astro';
       </a>
 
       <a class="card drawer-row drawer-row--flip" href="/work-with-me/mentoring/">
-        <div class="drawer-media photo-ph" role="img" aria-label="1:1 mentoring (photo coming)"><span>Photo</span></div>
+        <img class="photo drawer-media" src="/images/eliana-smile.jpg" alt="Eliana smiling warmly with a painted line down her face, trees behind her" loading="lazy" />
         <div>
           <span class="eyebrow">Drawer Two · 1:1</span>
           <h2>Mentoring</h2>
@@ -49,7 +49,7 @@ import Base from '../../layouts/Base.astro';
       </a>
 
       <a class="card drawer-row" href="/work-with-me/music/">
-        <div class="drawer-media photo-ph" role="img" aria-label="Eliana's music (artwork coming)"><span>Art</span></div>
+        <img class="photo drawer-media" src="/images/eliana-art.jpg" alt="Eliana in a sculptural studio pose holding a large leaf, warm earth tones" loading="lazy" />
         <div>
           <span class="eyebrow">Drawer Three · Anytime</span>
           <h2>The Music</h2>
@@ -81,7 +81,7 @@ import Base from '../../layouts/Base.astro';
         </p>
         <a class="btn btn--primary" href="/lets-talk/">Let's talk</a>
       </div>
-      <div class="photo-ph" role="img" aria-label="Eliana facilitating (photo coming)" style="min-height:340px;"><span>Facilitation photo here</span></div>
+      <img class="photo" src="/images/workshop.jpg" alt="Eliana leading a hands-on workshop around an outdoor table" loading="lazy" style="max-height:420px;" />
     </div>
   </section>
 
@@ -111,7 +111,7 @@ import Base from '../../layouts/Base.astro';
   }
   .drawer-row--flip { grid-template-columns: 1.15fr 0.85fr; }
   .drawer-row--flip .drawer-media { order: 2; }
-  .drawer-media { min-height: 260px; }
+  .drawer-media { min-height: 260px; max-height: 320px; }
   .drawer-link { color: var(--clay); font-weight: 700; }
   .drawer-row:hover .drawer-link { color: var(--clay-deep); }
   @media (max-width: 860px) {

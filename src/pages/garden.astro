@@ -28,6 +28,7 @@ import Bee from '../components/Bee.astro';
         <button class="btn btn--primary" type="submit">Plant me in</button>
       </form>
       <div style="margin-top:2rem;"><Bee size={34} /></div>
+      <img class="photo garden-photo" src="/images/eliana-play.jpg" alt="Eliana laughing in sparkly novelty sunglasses" loading="lazy" />
     </div>
   </section>
 
@@ -68,5 +69,13 @@ import Bee from '../components/Bee.astro';
   }
   @media (max-width: 560px) {
     .garden-form { flex-direction: column; }
+  }
+  .garden-photo {
+    width: min(260px, 70vw);
+    height: auto;
+    margin: 2rem auto 0;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
   }
 </style>

@@ -21,7 +21,7 @@ import Base from '../../layouts/Base.astro';
           <a class="btn btn--ghost" href="#how">How it works</a>
         </div>
       </div>
-      <div class="photo-ph photo-ph--arch" role="img" aria-label="Journaling circle (photo coming)" style="min-height:400px;"><span>Circle photo here</span></div>
+      <img class="photo photo--arch" src="/images/circle-rest.jpg" alt="Circle members resting close together on blankets, smiling" fetchpriority="high" style="max-height:460px;" />
     </div>
   </section>
 
@@ -76,11 +76,31 @@ import Base from '../../layouts/Base.astro';
 
   <!-- Beat: Proof -->
   <section class="section section--sand">
-    <div class="wrap prose center">
-      <span class="eyebrow">From the Circle</span>
-      <h2>What people say after they write</h2>
-      <!-- TODO: real testimonials from mastermind participants -->
-      <p class="lead muted">Testimonials from circle members are on their way — this space is reserved for their words, not mine.</p>
+    <div class="wrap">
+      <div class="prose center" style="margin-inline:auto;">
+        <span class="eyebrow">From the Circle</span>
+        <h2>What people say after they write</h2>
+      </div>
+      <div class="grid-3" style="margin-top:2.5rem;">
+        <figure class="card quote">
+          <blockquote>
+            <p>"Everything! Eliana holds such an excellent space for meaningful journaling. What keeps bringing me back is the community. There is so much respect, wisdom, and equal opportunity to connect, express, share and collect insights that inspire and motivate me. I really value these monthly sessions and wouldn't change a thing."</p>
+          </blockquote>
+          <figcaption>Circle member</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote>
+            <p>"Thank you all for being here to co-create this beautiful and safe space, especially to Eliana for hosting it. This nurtures me throughout the month."</p>
+          </blockquote>
+          <figcaption>Circle member</figcaption>
+        </figure>
+        <figure class="card quote">
+          <blockquote>
+            <p>"I love all the prompts from this recent journal session. Thank you so much for the invite, and the facility for souls to be nourished."</p>
+          </blockquote>
+          <figcaption>Circle member</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 

@@ -15,10 +15,7 @@ import Base from '../layouts/Base.astro';
           student of this whole being-alive thing.
         </p>
       </div>
-      <!-- TODO: replace with Eliana's about photo -->
-      <div class="photo-ph photo-ph--arch" role="img" aria-label="Eliana Reyes (photo coming)" style="min-height:400px;">
-        <span>Eliana's photo here</span>
-      </div>
+      <img class="photo photo--arch" src="/images/eliana-frame.jpg" alt="Eliana grinning through an empty vintage picture frame in a garden" style="max-height:480px;" fetchpriority="high" />
     </div>
   </section>
 
@@ -109,7 +106,9 @@ import Base from '../layouts/Base.astro';
 
   <!-- Beat: Alchemy -->
   <section class="section">
-    <div class="wrap prose">
+    <div class="wrap grid-2" style="align-items:center;">
+      <img class="photo" src="/images/eliana-dance.jpg" alt="Eliana dancing barefoot in a yellow dress, bathed in golden studio light" loading="lazy" />
+      <div>
       <span class="eyebrow">Alchemy</span>
       <h2>Bring me any emotion.</h2>
       <p class="lead">
@@ -127,6 +126,7 @@ import Base from '../layouts/Base.astro';
       <div class="cta-row">
         <a class="btn btn--primary" href="/work-with-me/">Work with me</a>
         <a class="btn btn--ghost" href="/journal/">Read my journal</a>
+      </div>
       </div>
     </div>
   </section>
