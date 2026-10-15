@@ -1,0 +1,143 @@
+/* Soul Mami homepage hero built on GlyphPortal (src/components/ui/glyph-portal.tsx). */
+
+.soul-portal { background: var(--cream); }
+
+/* Before Fraunces is ready: same opening frame, word not drawn yet. */
+.sp-pending {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  --gp-word-top: 30%;
+  --gp-word-bottom: 62%;
+}
+
+/* Opening frame -------------------------------------------------------------- */
+
+.sp-eyebrow {
+  position: absolute;
+  inset: auto 1.25rem calc(100% - var(--gp-word-top, 30%) + 1.5rem);
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--honey);
+}
+
+.sp-below {
+  position: absolute;
+  inset: calc(var(--gp-word-bottom, 62%) + 1.75rem) 1.25rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+}
+
+.sp-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  color: var(--espresso);
+}
+
+.sp-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.sp-scroll {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--stone);
+}
+
+/* The component's "Step inside" link stays as a keyboard skip link only. */
+.soul-portal [data-gp-caption] {
+  inset: auto 1.25rem 1.25rem;
+  justify-content: center;
+}
+.soul-portal [data-gp-enter]:not(:focus-visible) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.soul-portal [data-gp-enter]:focus-visible {
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* Scene seen through the letters --------------------------------------------- */
+
+.sp-scene {
+  position: absolute;
+  inset: 0;
+  transform: scale(var(--gp-field-scale, 1));
+}
+.sp-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 28%;
+}
+/* A light even shade keeps the letters readable on cream; the heavier
+   left-side shade for the inside copy fades in with --gp-reveal. */
+.sp-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(47, 35, 24, 0.22);
+}
+.sp-shade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--gp-reveal, 1);
+  background: linear-gradient(90deg, rgba(47, 35, 24, 0.75) 0%, rgba(47, 35, 24, 0.4) 45%, rgba(47, 35, 24, 0) 100%);
+}
+@media (max-width: 700px) {
+  .sp-shade::after { background: rgba(47, 35, 24, 0.45); }
+}
+
+/* Inside, after the camera passes through the O ------------------------------ */
+
+.sp-inside {
+  width: min(100%, var(--maxw));
+  margin-inline: auto;
+  padding-inline: clamp(0rem, 3vw, 1.5rem);
+}
+.sp-inside h2 {
+  max-width: 18ch;
+  color: var(--cream);
+}
+.sp-inside .lead {
+  max-width: 34rem;
+  color: var(--cream);
+}
+.sp-inside .sp-ctas {
+  justify-content: flex-start;
+  margin-block: 1.6rem;
+}
+.sp-ghost { border-color: var(--cream); color: var(--cream); }
+.sp-ghost:hover { background: var(--cream); color: var(--espresso); }
+
+.sp-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold-soft);
+}
+.sp-trust li { display: flex; align-items: center; gap: 0.5rem; }
+.sp-trust li::before { content: "✦"; color: var(--amber); }
+
+.soul-portal[data-gp-motion="off"] .sp-scroll { display: none; }

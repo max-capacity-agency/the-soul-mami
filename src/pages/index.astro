@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Bee from '../components/Bee.astro';
+import SoulPortal from '../components/SoulPortal';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('journal'))
@@ -13,32 +14,7 @@ const fmt = (d: Date) =>
 <Base title="The Soul Mami — You are your own missing piece">
 
   <!-- Beat: Welcome -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Hola, welcome home</span>
-        <h1>You are your own <em class="soul">missing piece.</em></h1>
-        <p class="lead">
-          I'm Eliana — mentor, facilitator, music maker, professional
-          feeler of feelings. Everything here exists for one reason:
-          to help you get back in a healthy, loving marriage with
-          yourself. Mind, body, and soul.
-        </p>
-        <div class="hero-ctas">
-          <a class="btn btn--primary" href="/garden/">Join my Garden</a>
-          <a class="btn btn--ghost" href="#doorways">Open the drawers</a>
-        </div>
-        <ul class="trust-bullets">
-          <li>TEDx speaker</li>
-          <li>Author of two books</li>
-          <li>200+ circles &amp; workshops facilitated</li>
-        </ul>
-      </div>
-      <div class="hero-photo">
-        <img class="photo photo--arch" src="/images/eliana-hero.jpg" alt="Eliana Reyes laughing joyfully, face painted, surrounded by greenery" width="1400" height="1223" fetchpriority="high" />
-      </div>
-    </div>
-  </section>
+  <SoulPortal client:load />
 
   <!-- Beat: Proof -->
   <section class="statbar">
@@ -138,7 +114,7 @@ const fmt = (d: Date) =>
   <section class="section section--dark">
     <div class="wrap grid-2 lineage">
       <div>
-        <img class="photo photo--arch" src="/images/eliana-gold.jpg" alt="Eliana in a yellow dress, laughing and blowing a kiss in golden light" loading="lazy" />
+        <img class="photo photo--arch" src="/images/eliana-hero.jpg" alt="Eliana Reyes laughing joyfully, face painted, surrounded by greenery" loading="lazy" />
       </div>
       <div>
         <span class="eyebrow">Lineage</span>
@@ -274,34 +250,6 @@ const fmt = (d: Date) =>
 </Base>
 
 <style>
-  /* Hero */
-  .hero { padding-block: clamp(3.5rem, 8vw, 6.5rem) var(--space-section); }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: center;
-  }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-block: 1.8rem; }
-  .trust-bullets {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--stone);
-  }
-  .trust-bullets li { display: flex; align-items: center; gap: 0.5rem; }
-  .trust-bullets li::before { content: "✦"; color: var(--honey); }
-  .hero-photo .photo-ph { min-height: 420px; }
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero-photo .photo-ph { min-height: 300px; }
-  }
-
   /* Stat bar */
   .statbar { background: var(--espresso); color: var(--cream); padding-block: 1.6rem; }
   .stats {
