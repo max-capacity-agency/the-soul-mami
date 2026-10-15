@@ -114,12 +114,15 @@ const fmt = (d: Date) =>
   </section>
 
   <!-- Beat: Lineage -->
-  <section class="section section--dark">
-    <div class="wrap grid-2 lineage">
-      <div>
-        <img class="photo photo--arch" src="/images/eliana-hero.jpg" alt="Eliana Reyes laughing joyfully, face painted, surrounded by greenery" loading="lazy" />
-      </div>
-      <div>
+  <section class="section section--dark lineage">
+    <picture class="lineage-bg">
+      <source media="(max-width: 720px)" srcset="/images/quiet-comb-mobile.webp" type="image/webp" />
+      <source media="(max-width: 720px)" srcset="/images/quiet-comb-mobile.jpg" />
+      <source srcset="/images/quiet-comb-desktop.webp" type="image/webp" />
+      <img src="/images/quiet-comb-desktop.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async" />
+    </picture>
+    <div class="wrap">
+      <div class="lineage-copy">
         <span class="eyebrow">Lineage</span>
         <h2>I come from beekeepers, farmers, and storytellers.</h2>
         <p class="lead">
@@ -325,9 +328,40 @@ const fmt = (d: Date) =>
   .drawer-link { color: var(--clay); font-weight: 700; }
   .drawer:hover .drawer-link { color: var(--clay-deep); }
 
-  /* Lineage */
-  .lineage { align-items: center; }
-  .lineage .photo-ph { min-height: 420px; }
+  /* Lineage: full-screen "Quiet Comb" background, copy over its dark side */
+  .lineage {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: #140d08;
+  }
+  .lineage > .wrap { width: 100%; }
+  .lineage-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .lineage-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 50%;
+  }
+  .lineage-copy { max-width: 34rem; }
+  /* Portrait tablets still get the wide art; reframe it so the dark side stays behind the copy. */
+  @media (min-width: 721px) and (max-aspect-ratio: 1/1) {
+    .lineage-bg img { object-position: 50% 50%; }
+    .lineage-copy { max-width: 27rem; }
+  }
+  /* Mobile art is dark on top, comb below: keep the copy up top and let the comb show beneath it. */
+  @media (max-width: 720px) {
+    .lineage { align-items: flex-start; padding-bottom: 42svh; }
+    .lineage-bg img { object-position: 60% 100%; }
+  }
 
   /* Tracks */
   .tracks { margin-top: 2.5rem; align-items: center; }
