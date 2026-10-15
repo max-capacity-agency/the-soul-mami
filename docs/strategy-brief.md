@@ -96,7 +96,7 @@ Warm, real, soulful, funny as hell. Like talking to a dope, wise friend. "LFG" e
 
 ## 11. Design direction
 
-Earthy warm with honey: cream/sand foundation, terracotta and clay, **gold/amber/honey accents**, subtle bee and honeycomb motifs honoring the beekeeper lineage. Serif display type with organic character (Fraunces), humanist sans for body (Karla). Generous whitespace — minimalist but deep. Grain and warmth over gloss.
+Earthy warm with honey: cream/sand foundation, terracotta and clay, **gold/amber/honey accents**, subtle bee and honeycomb motifs honoring the beekeeper lineage. Chunky, warm display serif with a hand-set, seed-packet feel (Young Serif) and a clean sans for body (Hanken Grotesk); the display face has one weight and no italic, so accents use clay color rather than faked bold or italics. White page background, with sand, honey, espresso and clay bands carrying the warmth. Generous whitespace — minimalist but deep. Grain and warmth over gloss.
 
 ## 12. Open questions for Eliana
 

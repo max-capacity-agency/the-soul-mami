@@ -2,7 +2,7 @@
 
 .soul-portal { background: var(--paper); }
 
-/* Before Fraunces is ready: same opening frame, word not drawn yet. */
+/* Before the heading font is ready: same opening frame, word not drawn yet. */
 .sp-pending {
   position: relative;
   height: 100vh;
@@ -19,7 +19,7 @@
   margin: 0;
   text-align: center;
   font-family: var(--font-display);
-  font-weight: 480;
+  font-weight: 400;
   font-size: clamp(1.5rem, 3vw, 2.4rem);
   letter-spacing: -0.01em;
   color: var(--espresso);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
 import "@/styles/soul-portal.css";
 
-const FRAUNCES = '"Fraunces", serif';
+const YOUNG_SERIF = '"Young Serif", serif';
 const FALLBACK = "Georgia, serif";
 
 function Opening() {
@@ -58,8 +58,8 @@ export default function SoulPortal() {
       if (!settled) { settled = true; setFace(value); }
     };
     const timeout = window.setTimeout(() => finish(FALLBACK), 1600);
-    document.fonts.load('900 100px "Fraunces"', "SOUL").then(
-      (faces) => finish(faces.length ? FRAUNCES : FALLBACK),
+    document.fonts.load('400 100px "Young Serif"', "SOUL").then(
+      (faces) => finish(faces.length ? YOUNG_SERIF : FALLBACK),
       () => finish(FALLBACK),
     );
     return () => { settled = true; clearTimeout(timeout); };
@@ -80,7 +80,7 @@ export default function SoulPortal() {
       focusChar="O"
       interactive={false}
       fontFamily={face}
-      fontWeight={900}
+      fontWeight={400}
       scrollLength={1.8}
       enterLabel="Step inside"
       background={<Scene />}

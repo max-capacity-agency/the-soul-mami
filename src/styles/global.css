@@ -26,8 +26,8 @@
   --olive-deep: #46512f;
 
   /* Type */
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-body: "Karla", -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", -apple-system, "Segoe UI", sans-serif;
 
   /* Rhythm */
   --space-section: clamp(4.5rem, 10vw, 7.5rem);
@@ -55,9 +55,11 @@ body {
 
 img { max-width: 100%; display: block; }
 
+/* Young Serif has one weight and no italic; never let the browser fake either. */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 560;
+  font-weight: 400;
+  font-synthesis: none;
   line-height: 1.12;
   letter-spacing: -0.015em;
   margin: 0 0 0.6em;
@@ -75,8 +77,9 @@ a:hover { color: var(--clay-deep); }
 
 em.soul {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 480;
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
   color: var(--clay);
 }
 
@@ -234,9 +237,9 @@ em.soul {
 .quote { margin: 0; display: flex; flex-direction: column; }
 .quote blockquote { margin: 0 0 1rem; flex: 1; }
 .quote blockquote p {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-style: italic;
-  font-size: 1.08rem;
+  font-size: 1.1rem;
   line-height: 1.55;
   margin: 0;
 }
