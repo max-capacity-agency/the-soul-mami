@@ -8,7 +8,7 @@ excerpt: "Lessons in trust and timing from a lineage of beekeepers."
 
 My people kept bees.
 
-I think about that a lot — how you can't rush a hive. You can't yell at the honey to hurry up. You tend the conditions, you respect the cycles, and the sweetness arrives when it's ready.
+I think about that a lot: how you can't rush a hive. You can't yell at the honey to hurry up. You tend the conditions, you respect the cycles, and the sweetness arrives when it's ready.
 
 We treat ourselves like machines. Produce more, feel less, optimize everything. And then we're shocked when our inner life goes quiet.
 

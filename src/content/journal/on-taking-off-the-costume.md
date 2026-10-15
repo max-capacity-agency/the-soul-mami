@@ -8,7 +8,7 @@ excerpt: "A note about the identities we wear so long we forget they have zipper
 
 Today I caught myself performing.
 
-Mid-conversation, I heard my own voice doing the thing — the polished, capable, everything's-handled voice — while the actual me stood somewhere behind it, waving, like *hello, I'm also here.*
+Mid-conversation, I heard my own voice doing the thing: the polished, capable, everything's-handled voice. Meanwhile the actual me stood somewhere behind it, waving, like *hello, I'm also here.*
 
 Here's what I keep learning: the costume isn't evil. It got us through things. It kept us safe in rooms that weren't safe for the real us. Gratitude to the costume, honestly.
 

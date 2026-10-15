@@ -10,7 +10,7 @@ I've kept journals my whole life. Stacks of them. The kind with coffee rings on 
 
 This section of the site is me cracking a few of those notebooks open.
 
-Not a blog. No "5 tips for optimal morning routines." Just me, walking through the human experience and writing it down — the grief and the goofiness, the doubt spirals and the little wins, the days I remember who I am and the days I forget.
+Not a blog. No "5 tips for optimal morning routines." Just me, walking through the human experience and writing it down. The grief and the goofiness, the doubt spirals and the little wins, the days I remember who I am and the days I forget.
 
 I'm sharing it because I think we heal out loud, in company. And because maybe something in my pages helps you open yours.
 
