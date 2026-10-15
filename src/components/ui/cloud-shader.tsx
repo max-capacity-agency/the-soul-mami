@@ -19,6 +19,8 @@ export type CloudShaderProps = {
   skyBottomColor?: string;
   /** Upper bound on device pixel ratio. Every pixel runs the full shader, so 1 is far cheaper on retina screens. */
   maxDpr?: number;
+  /** Stop drawing while true, e.g. when the sky is hidden under other content. */
+  paused?: boolean;
 };
 
 const VERT = `
@@ -235,8 +237,12 @@ export const CloudShader = ({
   skyTopColor = "#3876ba",
   skyBottomColor = "#8cbfe8",
   maxDpr = 2,
+  paused = false,
 }: CloudShaderProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pausedRef = useRef(paused);
+  pausedRef.current = paused;
+  const resumeRef = useRef<() => void>(() => {});
   const paramsRef = useRef({
     speed,
     count,
@@ -324,11 +330,12 @@ export const CloudShader = ({
       frame = 0;
       if (!running) return;
       render(now);
-      if (!reduceMotion && visible) frame = requestAnimationFrame(draw);
+      if (!reduceMotion && visible && !pausedRef.current) frame = requestAnimationFrame(draw);
     };
     const schedule = () => {
       if (!frame && running) frame = requestAnimationFrame(draw);
     };
+    resumeRef.current = schedule;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
@@ -365,6 +372,10 @@ export const CloudShader = ({
       gl.deleteShader(frag);
     };
   }, [maxDpr]);
+
+  useEffect(() => {
+    if (!paused) resumeRef.current();
+  }, [paused]);
 
   return (
     <div className={cn("cloud-shader", className)}>

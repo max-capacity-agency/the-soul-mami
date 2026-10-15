@@ -1,0 +1,52 @@
+---
+// Stacking cards for the direct children of `.stack`: each section sticks while
+// the next slides over it. Tall sections stick only once their bottom is in view,
+// so nothing is covered before it has been seen. Covered cards get
+// data-stack-covered="true" so heavy effects (the cloud sky) can pause.
+---
+<script is:inline>
+(() => {
+  const stack = document.querySelector('.stack');
+  if (!stack) return;
+  const cards = [...stack.children];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let vh = innerHeight;
+  let raf = 0;
+
+  const update = () => {
+    raf = 0;
+    const tops = cards.map((c) => c.getBoundingClientRect().top);
+    cards.forEach((card, i) => {
+      const next = cards[i + 1];
+      const p = next && !reduce.matches ? Math.min(1, Math.max(0, (vh - tops[i + 1]) / vh)) : 0;
+      card.style.setProperty('--stack-p', p.toFixed(3));
+      let covered = false;
+      for (let j = i + 1; j < cards.length; j++) {
+        if (tops[j] <= 0.5 && cards[j].offsetHeight >= vh) { covered = true; break; }
+      }
+      const value = String(covered);
+      if (card.dataset.stackCovered !== value) card.dataset.stackCovered = value;
+    });
+  };
+
+  const layout = () => {
+    vh = innerHeight;
+    for (const card of cards) {
+      const h = card.offsetHeight;
+      const top = Math.min(0, vh - h);
+      card.style.setProperty('--stack-top', `${top}px`);
+      card.style.setProperty('--stack-origin', `${-top + Math.min(h, vh) / 2}px`);
+    }
+    update();
+  };
+
+  const schedule = () => { if (!raf) raf = requestAnimationFrame(update); };
+  const resize = new ResizeObserver(layout);
+  cards.forEach((c) => resize.observe(c));
+  addEventListener('resize', layout);
+  addEventListener('scroll', schedule, { passive: true });
+  reduce.addEventListener('change', layout);
+  stack.classList.add('stack--on');
+  layout();
+})();
+</script>
