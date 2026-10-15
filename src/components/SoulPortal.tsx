@@ -8,15 +8,15 @@ const FALLBACK = "Georgia, serif";
 function Opening() {
   return (
     <>
-      <p className="sp-eyebrow">Hola, welcome home</p>
+      {/* The big animated word is decorative, so the heading carries "soul" for screen readers and search. */}
+      <h1 className="sp-lead-in">
+        Remember your<span className="sp-sr-only"> soul</span>
+      </h1>
       <div className="sp-below">
-        <h1 className="sp-title">
-          You are your own <em className="soul">missing piece.</em>
-        </h1>
-        <div className="sp-ctas">
-          <a className="btn btn--primary" href="/garden/">Join my Garden</a>
-        </div>
-        <p className="sp-scroll" aria-hidden="true">Scroll to step inside &darr;</p>
+        <p className="sp-sub">
+          Journaling circles, 1:1 mentoring, and music for coming home to who you already are.
+        </p>
+        <p className="sp-scroll" aria-hidden="true">Scroll to enter the garden &darr;</p>
       </div>
     </>
   );
@@ -35,10 +35,11 @@ function Inside() {
   return (
     <div className="sp-inside">
       <span className="eyebrow">Hola, I'm Eliana</span>
-      <h2>Mentor, facilitator, music maker, professional feeler of feelings.</h2>
+      <h2>Your marriage with yourself is the most important one you'll ever be in.</h2>
       <p className="lead">
-        Everything here exists for one reason: to help you get back in a
-        healthy, loving marriage with yourself. Mind, body, and soul.
+        I'm a mentor, facilitator, and music maker. Not a guru, and not here
+        to fix you. Everything here helps you know, trust, and show up as
+        yourself: mind, body, and soul.
       </p>
       <div className="sp-ctas">
         <a className="btn btn--honey" href="/garden/">Join my Garden</a>
