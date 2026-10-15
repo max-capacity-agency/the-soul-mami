@@ -1,6 +1,6 @@
 /* Soul Mami homepage hero built on GlyphPortal (src/components/ui/glyph-portal.tsx). */
 
-.soul-portal { background: var(--cream); }
+.soul-portal { background: var(--paper); }
 
 /* Before Fraunces is ready: same opening frame, word not drawn yet. */
 .sp-pending {

@@ -90,7 +90,7 @@ export default function SoulPortal() {
       background={<Scene />}
       front={<Opening />}
       style={{
-        "--gp-paper": "var(--cream)",
+        "--gp-paper": "var(--paper)",
         "--gp-ink": "var(--espresso)",
         "--gp-field": "var(--espresso)",
         "--gp-foreground": "var(--cream)",
