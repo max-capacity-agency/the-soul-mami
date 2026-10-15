@@ -303,3 +303,23 @@ html.bi .bi-t.bi-in {
   opacity: 1;
   filter: blur(0);
 }
+
+/* Homepage doorways: golden-hour cloud sky behind the three drawers --------- */
+
+.doorways {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.doorways > .wrap { position: relative; z-index: 1; }
+/* Also the fallback when WebGL is unavailable. */
+.doorways .doorways-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 0;
+  background: linear-gradient(to bottom, #d9952b, #f4e4c6);
+}
+.doorways .eyebrow { color: var(--espresso); }
+.doorways .eyebrow::before,
+.doorways .eyebrow::after { background: var(--espresso); }

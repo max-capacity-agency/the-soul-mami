@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Bee from '../components/Bee.astro';
 import SoulPortal from '../components/SoulPortal';
+import DoorwaysSky from '../components/DoorwaysSky';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('journal'))
@@ -80,7 +81,8 @@ const fmt = (d: Date) =>
   </section>
 
   <!-- Beat: Doorways -->
-  <section class="section" id="doorways">
+  <section class="section doorways" id="doorways">
+    <DoorwaysSky client:visible />
     <div class="wrap">
       <div class="center prose">
         <span class="eyebrow">Doorways</span>
