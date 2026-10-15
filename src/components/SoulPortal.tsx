@@ -44,11 +44,6 @@ function Inside() {
         <a className="btn btn--honey" href="/garden/">Join my Garden</a>
         <a className="btn btn--ghost sp-ghost" href="#doorways">Open the drawers</a>
       </div>
-      <ul className="sp-trust">
-        <li>TEDx speaker</li>
-        <li>Author of two books</li>
-        <li>200+ circles &amp; workshops facilitated</li>
-      </ul>
     </div>
   );
 }

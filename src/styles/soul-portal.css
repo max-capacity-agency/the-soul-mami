@@ -126,18 +126,5 @@
 .sp-ghost { border-color: var(--cream); color: var(--cream); }
 .sp-ghost:hover { background: var(--cream); color: var(--espresso); }
 
-.sp-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--gold-soft);
-}
-.sp-trust li { display: flex; align-items: center; gap: 0.5rem; }
-.sp-trust li::before { content: "✦"; color: var(--amber); }
 
 .soul-portal[data-gp-motion="off"] .sp-scroll { display: none; }

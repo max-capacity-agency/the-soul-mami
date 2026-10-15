@@ -140,7 +140,7 @@ em.soul {
   padding: 0.9rem 1.9rem;
   border-radius: 999px;
   border: 2px solid transparent;
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.5s ease;
   cursor: pointer;
 }
 .btn:active { transform: translateY(1px); }
@@ -324,3 +324,132 @@ html.bi .bi-t.bi-in {
 .doorways .eyebrow { color: var(--espresso); }
 .doorways .eyebrow::before,
 .doorways .eyebrow::after { background: var(--espresso); }
+
+/* Homepage "Witnessed": slow blurred honey waves behind the testimonials ------- */
+
+.witnessed {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--sand);
+}
+.witnessed > .wrap { position: relative; z-index: 1; }
+.honey-waves {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.honey-waves .wave {
+  position: absolute;
+  left: 0;
+  height: 200px;
+  margin-top: -100px;
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  filter: blur(14px);
+  will-change: transform;
+  animation: honey-drift var(--wave-speed) linear infinite var(--wave-dir);
+}
+.wave--honey {
+  top: 50%;
+  width: calc(100% + 1200px);
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='200' viewBox='0 0 1200 200'%3E%3Cpath d='M0 100 C 300 20, 300 20, 600 100 S 900 180, 1200 100' fill='none' stroke='%23d9952b' stroke-width='34' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 1200px 200px;
+  --wave-shift: -1200px;
+  --wave-speed: 46s;
+  --wave-dir: normal;
+}
+.wave--amber {
+  top: 58%;
+  width: calc(100% + 1500px);
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1500' height='200' viewBox='0 0 1500 200'%3E%3Cpath d='M0 100 C 375 20, 375 20, 750 100 S 1125 180, 1500 100' fill='none' stroke='%23e8b34b' stroke-width='34' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 1500px 200px;
+  --wave-shift: -1500px;
+  --wave-speed: 62s;
+  --wave-dir: reverse;
+}
+.wave--clay {
+  top: 66%;
+  width: calc(100% + 1000px);
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='200' viewBox='0 0 1000 200'%3E%3Cpath d='M0 100 C 250 20, 250 20, 500 100 S 750 180, 1000 100' fill='none' stroke='%23b5502e' stroke-width='34' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 1000px 200px;
+  --wave-shift: -1000px;
+  --wave-speed: 54s;
+  --wave-dir: normal;
+}
+.wave--olive {
+  top: 74%;
+  width: calc(100% + 1700px);
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1700' height='200' viewBox='0 0 1700 200'%3E%3Cpath d='M0 100 C 425 20, 425 20, 850 100 S 1275 180, 1700 100' fill='none' stroke='%235f6844' stroke-width='34' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 1700px 200px;
+  --wave-shift: -1700px;
+  --wave-speed: 74s;
+  --wave-dir: reverse;
+}
+@keyframes honey-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--wave-shift)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .honey-waves .wave { animation: none; }
+}
+
+/* CTA buttons: a glint travels around the border; on hover the whole border lights up.
+   Brand-colored, CSS-only adaptation of the "hover border gradient" component. */
+
+@property --btn-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.btn {
+  position: relative;
+  isolation: isolate;
+  --btn-glow: var(--gold-soft);
+}
+.btn--honey { --btn-glow: var(--clay); }
+.btn--ghost { --btn-glow: var(--honey); }
+
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -2px; /* exactly over the 2px border */
+  border-radius: inherit;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+/* The traveling glint: one full lap every 4s, like the original's 1s per side. */
+.btn::before {
+  background: conic-gradient(from var(--btn-angle), transparent 0deg, var(--btn-glow) 45deg, transparent 100deg);
+  animation: btn-orbit 4s linear infinite;
+  transition: opacity 0.5s ease;
+}
+/* The hover highlight: the whole border lights up. */
+.btn::after {
+  background: var(--btn-glow);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.btn:hover::after,
+.btn:focus-visible::after { opacity: 1; }
+.btn:hover::before,
+.btn:focus-visible::before { opacity: 0; }
+.btn:hover,
+.btn:focus-visible { box-shadow: 0 0 22px -6px var(--btn-glow); }
+
+@keyframes btn-orbit {
+  to { --btn-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn::before { animation: none; opacity: 0; }
+}

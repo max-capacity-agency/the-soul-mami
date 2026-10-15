@@ -19,12 +19,13 @@ const fmt = (d: Date) =>
 
   <!-- Beat: Proof -->
   <section class="statbar">
-    <div class="wrap stats">
-      <div><strong>200+</strong><span>circles, cohorts &amp; workshops</span></div>
-      <div><strong>2</strong><span>books written</span></div>
-      <div><strong>1</strong><span>TEDx talk</span></div>
-      <div><strong>&infin;</strong><span>emotions alchemized</span></div>
-    </div>
+    <!-- TODO: link the TEDx talk and the books once Eliana sends the URLs -->
+    <ul class="wrap stats">
+      <li><strong>200+</strong><span>circles, cohorts &amp; workshops held</span></li>
+      <li><strong>TEDx</strong><span>speaker</span></li>
+      <li><strong>Two books</strong><span>written &amp; published</span></li>
+      <li><strong>Monthly</strong><span>journaling mastermind, first Sundays</span></li>
+    </ul>
   </section>
 
   <!-- Beat: The Loop -->
@@ -143,7 +144,13 @@ const fmt = (d: Date) =>
   </section>
 
   <!-- Beat: Witnessed -->
-  <section class="section">
+  <section class="section witnessed">
+    <div class="honey-waves" aria-hidden="true">
+      <span class="wave wave--honey"></span>
+      <span class="wave wave--amber"></span>
+      <span class="wave wave--clay"></span>
+      <span class="wave wave--olive"></span>
+    </div>
     <div class="wrap">
       <div class="center prose">
         <span class="eyebrow">Witnessed</span>
@@ -255,6 +262,8 @@ const fmt = (d: Date) =>
   /* Stat bar */
   .statbar { background: var(--espresso); color: var(--cream); padding-block: 1.6rem; }
   .stats {
+    list-style: none;
+    margin-block: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -266,7 +275,7 @@ const fmt = (d: Date) =>
     font-size: 1.9rem;
     color: var(--amber);
   }
-  .stats span { font-size: 0.88rem; color: #cbb99f; }
+  .stats span { display: block; line-height: 1.45; font-size: 0.88rem; color: #cbb99f; }
   @media (max-width: 700px) {
     .stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
   }
