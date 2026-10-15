@@ -24,6 +24,8 @@ export type GlyphPortalProps = {
   background?: ReactNode;
   /** Optional foreground composition for the opening frame, above the clipped scene. */
   front?: ReactNode;
+  /** Optional layer rendered as a direct child of the pinned frame (e.g. an ambient animation). */
+  pinLayer?: ReactNode;
   children?: ReactNode;
   /** Scroll travel in visible container heights, clamped to 1–8. */
   scrollLength?: number;
@@ -87,7 +89,7 @@ function scrollParent(element: HTMLElement): HTMLElement | null {
 }
 
 export default function GlyphPortal({
-  word = "SUBLIME", focusChar, interactive = true, background, front, children, scrollLength = 2.4,
+  word = "SUBLIME", focusChar, interactive = true, background, front, pinLayer, children, scrollLength = 2.4,
   fontFamily = DEFAULT_FONT, fontWeight = 900, annotations = false,
   enterLabel = "Enter section", className, style, onProgress,
 }: GlyphPortalProps) {
@@ -408,6 +410,7 @@ export default function GlyphPortal({
           <option value="" disabled>Choose a letter</option>
           {characters.map(({ char, index }, i) => <option key={index} value={index}>{i + 1} · {char}</option>)}
         </select></label>
+        {pinLayer}
         {front && <div data-gp-front>{front}</div>}
         <span data-gp-fallback aria-hidden="true" style={{ fontFamily, fontWeight: weight }}>{text}</span>
         <div data-gp-caption>

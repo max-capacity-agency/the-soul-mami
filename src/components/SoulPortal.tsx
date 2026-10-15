@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
+import SoulBee from "./SoulBee";
 import "@/styles/soul-portal.css";
 
 const YOUNG_SERIF = '"Young Serif", serif';
@@ -12,6 +13,8 @@ function Opening() {
       <h1 className="sp-lead-in">
         Remember your<span className="sp-sr-only"> soul</span>
       </h1>
+      {/* SOUL itself is drawn as SVG, so this box over it is what SoulBee launches from. */}
+      <span className="sp-word-anchor" data-soul-bee-anchor aria-hidden="true" />
       <div className="sp-below">
         <p className="sp-sub">
           Journaling circles, 1:1 mentoring, and music for coming home to who you already are.
@@ -85,6 +88,7 @@ export default function SoulPortal() {
       enterLabel="Step inside"
       background={<Scene />}
       front={<Opening />}
+      pinLayer={<SoulBee />}
       style={{
         "--gp-paper": "var(--paper)",
         "--gp-ink": "var(--espresso)",

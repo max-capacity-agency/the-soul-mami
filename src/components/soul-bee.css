@@ -1,0 +1,108 @@
+/*
+  Place <SoulBee /> inside the hero. The hero must be position: relative and
+  overflow: clip/hidden; the word “soul” and hero copy should sit above z-index 2.
+*/
+.soul-bee-layer {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+
+.soul-bee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(2rem, 3.9vw, 3.55rem);
+  opacity: 0;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.soul-bee svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.soul-bee__wings {
+  transform-origin: 39px 24px;
+  animation: soul-bee-wingbeat 130ms ease-in-out infinite alternate;
+}
+
+.soul-bee__wing {
+  fill: #fff9e8;
+  stroke: #493726;
+  stroke-width: 1.8;
+}
+
+.soul-bee__wing--far {
+  opacity: 0.66;
+}
+
+.soul-bee__body path:first-child {
+  fill: #e2a52a;
+  stroke: #493726;
+  stroke-width: 2.35;
+}
+
+.soul-bee__stripe {
+  fill: none;
+  stroke: #493726;
+  stroke-width: 4.4;
+  stroke-linecap: round;
+}
+
+.soul-bee__face circle:first-child {
+  fill: #edb73e;
+  stroke: #493726;
+  stroke-width: 2.35;
+}
+
+.soul-bee__antenna,
+.soul-bee__smile {
+  fill: none;
+  stroke: #493726;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+.soul-bee__eye {
+  fill: #493726;
+}
+
+.soul-bee__stinger {
+  fill: #493726;
+}
+
+.soul-bee[data-reduced-motion="true"] .soul-bee__wings {
+  animation: none;
+}
+
+.soul-bee[data-complete="true"] {
+  visibility: hidden;
+}
+
+@keyframes soul-bee-wingbeat {
+  from {
+    transform: rotate(-8deg) scaleY(0.86);
+  }
+
+  to {
+    transform: rotate(10deg) scaleY(1.07);
+  }
+}
+
+@media (max-width: 720px) {
+  .soul-bee {
+    width: clamp(1.9rem, 9vw, 2.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soul-bee__wings {
+    animation: none;
+  }
+}

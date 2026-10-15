@@ -140,3 +140,17 @@
 
 
 .soul-portal[data-gp-motion="off"] .sp-scroll { display: none; }
+
+/* SoulBee: the bee layer (z-index 2, from soul-bee.css) lives in the pinned
+   frame, between its background and everything drawn in it. The SOUL letters,
+   copy and links sit above at z-index 3, so the bee emerges from behind them. */
+.soul-portal { overflow: clip; }
+.soul-portal [data-gp-pin] > :not(.soul-bee-layer) { z-index: 3; }
+.sp-word-anchor {
+  position: absolute;
+  top: var(--gp-word-top, 30%);
+  height: calc(var(--gp-word-bottom, 62%) - var(--gp-word-top, 30%));
+  left: 8%;
+  right: 8%;
+  pointer-events: none;
+}
