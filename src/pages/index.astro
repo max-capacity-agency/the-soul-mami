@@ -5,6 +5,7 @@ import SoulPortal from '../components/SoulPortal';
 import DoorwaysSky from '../components/DoorwaysSky';
 import GardenCTA from '../components/GardenCTA.astro';
 import StackCards from '../components/StackCards.astro';
+import Parallax from '../components/Parallax.astro';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('journal'))
@@ -120,7 +121,7 @@ const fmt = (d: Date) =>
 
   <!-- Beat: Lineage -->
   <section class="section section--dark lineage">
-    <picture class="lineage-bg">
+    <picture class="lineage-bg" data-parallax>
       <source media="(max-width: 720px)" srcset="/images/quiet-comb-mobile.webp" type="image/webp" />
       <source media="(max-width: 720px)" srcset="/images/quiet-comb-mobile.jpg" />
       <source srcset="/images/quiet-comb-desktop.webp" type="image/webp" />
@@ -269,6 +270,7 @@ const fmt = (d: Date) =>
 
   </div>
   <StackCards />
+  <Parallax />
 
 </Base>
 
@@ -370,8 +372,10 @@ const fmt = (d: Date) =>
   }
   .lineage-bg {
     position: absolute;
-    inset: 0;
+    /* Taller than the section: the extra is the parallax travel, hidden by overflow. */
+    inset: 0 0 -18% 0;
     z-index: -1;
+    will-change: transform;
   }
   .lineage-bg img {
     width: 100%;
