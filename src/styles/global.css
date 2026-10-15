@@ -291,3 +291,15 @@ label {
 .muted { color: var(--stone); }
 .section--dark .muted { color: #cbb99f; }
 .mt-0 { margin-top: 0; }
+
+/* Scroll blur-in for text (see components/BlurInText.astro) ------------------ */
+
+html.bi .bi-t {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 1s ease, filter 1s ease;
+}
+html.bi .bi-t.bi-in {
+  opacity: 1;
+  filter: blur(0);
+}

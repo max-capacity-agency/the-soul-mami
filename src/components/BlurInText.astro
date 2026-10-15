@@ -1,0 +1,81 @@
+---
+// Site-wide scroll blur-in for text: the same values as components/ui/blur-in.tsx
+// (blur 10px -> 0, opacity 0 -> 1, 1s), without React on every paragraph.
+// Text is only hidden once this script has marked it, so no-JS visitors see everything.
+---
+<script is:inline>
+(() => {
+  const root = document.documentElement;
+  if (!root.classList.contains('bi')) return;
+
+  const TEXT = 'h1,h2,h3,h4,p,li,blockquote,figcaption,label,summary,.eyebrow,.btn,.drawer-link,.tag,.stats > div';
+  const SKIP = '.site-header,.site-footer,[data-gp-choices],[data-gp-touch-picker],[data-gp-caption],[data-gp-fallback]';
+  const STAGGER = 90;
+  const MAX_DELAY = 450;
+
+  const done = (el) => {
+    el.classList.remove('bi-t', 'bi-in');
+    el.style.removeProperty('transition-delay');
+  };
+  const reveal = (el, delay) => {
+    el.style.transitionDelay = `${delay}ms`;
+    el.classList.add('bi-in');
+    // transitionend can be skipped (e.g. an ancestor's opacity is animating), so also clean up on a timer.
+    setTimeout(() => done(el), 1000 + delay + 100);
+  };
+
+  // Inside the SOUL hero, hold the welcome copy until the camera has passed through the O.
+  const held = new Set();
+  const watched = new WeakSet();
+  const portalOf = (el) => el.closest('.soul-portal[data-gp-motion="on"]');
+  const portalOpen = (portal) => parseFloat(portal.dataset.gpProgress || '0') >= 0.8;
+  const releaseHeld = () => {
+    let i = 0;
+    for (const el of [...held]) {
+      const portal = portalOf(el);
+      if (!portal || portalOpen(portal)) { held.delete(el); reveal(el, Math.min(i++ * STAGGER, MAX_DELAY)); }
+    }
+  };
+  const holdForPortal = (el) => {
+    const portal = el.closest('[data-gp-content]') && portalOf(el);
+    if (!portal || portalOpen(portal)) return false;
+    held.add(el);
+    if (!watched.has(portal)) {
+      watched.add(portal);
+      new MutationObserver(releaseHeld).observe(portal, { attributes: true, attributeFilter: ['data-gp-progress', 'data-gp-motion'] });
+    }
+    return true;
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    const hits = entries.filter((e) => e.isIntersecting).map((e) => e.target)
+      .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+    let i = 0;
+    for (const el of hits) {
+      io.unobserve(el);
+      if (!holdForPortal(el)) reveal(el, Math.min(i++ * STAGGER, MAX_DELAY));
+    }
+  }, { rootMargin: '0px 0px -6% 0px' });
+
+  // Outermost text element wins, so a quote and its inner paragraph don't blur twice.
+  const mark = (el) => {
+    if (el.classList.contains('bi-t') || el.closest(SKIP)) return;
+    const parent = el.parentElement && el.parentElement.closest(TEXT);
+    if (parent && !parent.closest(SKIP)) return;
+    el.classList.add('bi-t');
+    // The hero placeholder is replaced by React within ~1.6s; never reveal it, just in case unhide later.
+    if (el.closest('.sp-pending')) { setTimeout(() => done(el), 2500); return; }
+    io.observe(el);
+  };
+  const scan = (node) => {
+    if (node.nodeType !== 1) return;
+    if (node.matches(TEXT)) mark(node);
+    node.querySelectorAll(TEXT).forEach(mark);
+  };
+
+  scan(document.body);
+  new MutationObserver((records) => {
+    for (const r of records) r.addedNodes.forEach(scan);
+  }).observe(document.body, { childList: true, subtree: true });
+})();
+</script>
