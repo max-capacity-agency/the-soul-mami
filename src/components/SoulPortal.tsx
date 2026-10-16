@@ -16,7 +16,15 @@ function Opening() {
         <p className="sp-sub">
           Journaling circles, 1:1 mentoring, and music for coming home to who you already are.
         </p>
-        <p className="sp-scroll" aria-hidden="true">Scroll to enter the garden &darr;</p>
+        <div className="sp-scroll" aria-hidden="true">
+          <span className="sp-scroll-icon">
+            <span className="sp-mouse"><span className="sp-wheel" /></span>
+            <svg className="sp-chevron" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span>Scroll to enter the garden</span>
+        </div>
       </div>
     </>
   );
