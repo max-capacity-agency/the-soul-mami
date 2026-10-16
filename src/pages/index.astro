@@ -7,6 +7,8 @@ import GardenCTA from '../components/GardenCTA.astro';
 import StackCards from '../components/StackCards.astro';
 import Parallax from '../components/Parallax.astro';
 import SoulGallery from '../components/SoulGallery';
+import StatBar from '../components/StatBar.astro';
+import HoneyWaves from '../components/HoneyWaves.astro';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('journal'))
@@ -22,15 +24,7 @@ const fmt = (d: Date) =>
   <SoulPortal client:load />
 
   <!-- Beat: Proof -->
-  <section class="statbar">
-    <!-- TODO: link the TEDx talk and the books once Eliana sends the URLs -->
-    <ul class="wrap stats">
-      <li><strong>200+</strong><span>circles, cohorts &amp; workshops held</span></li>
-      <li><strong>TEDx</strong><span>speaker</span></li>
-      <li><strong>Two books</strong><span>written &amp; published</span></li>
-      <li><strong>Monthly</strong><span>journaling mastermind, first Sundays</span></li>
-    </ul>
-  </section>
+  <StatBar />
 
   <!-- From The Loop down, each section stacks over the last like a card. -->
   <div class="stack">
@@ -156,12 +150,7 @@ const fmt = (d: Date) =>
 
   <!-- Beat: Witnessed -->
   <section class="section witnessed">
-    <div class="honey-waves" aria-hidden="true">
-      <span class="wave wave--honey"></span>
-      <span class="wave wave--amber"></span>
-      <span class="wave wave--clay"></span>
-      <span class="wave wave--olive"></span>
-    </div>
+    <HoneyWaves />
     <div class="wrap">
       <div class="center prose">
         <span class="eyebrow">Witnessed</span>
@@ -278,29 +267,6 @@ const fmt = (d: Date) =>
 </Base>
 
 <style>
-  /* Stat bar */
-  .statbar { background: var(--espresso); color: var(--cream); padding-block: 1.6rem; }
-  .stats {
-    list-style: none;
-    margin-block: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    text-align: center;
-  }
-  .stats strong {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-synthesis: none;
-    font-size: 1.9rem;
-    color: var(--amber);
-  }
-  .stats span { display: block; line-height: 1.45; font-size: 0.88rem; color: #cbb99f; }
-  @media (max-width: 700px) {
-    .stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-  }
-
   /* Loop list */
   .loop-list { list-style: none; margin: 0 0 1.5rem; padding: 0; }
   .loop-list li {

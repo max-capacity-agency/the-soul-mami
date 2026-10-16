@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
+import GardenCTA from '../../components/GardenCTA.astro';
+import StackCards from '../../components/StackCards.astro';
 ---
-<Base title="Work With Me | The Soul Mami" description="Three doorways into the same work: the monthly Journaling Mastermind, 1:1 mentoring with Eliana Reyes, and her music. Plus facilitation and speaking for organizations.">
+<Base hideGarden={true} title="Work With Me | The Soul Mami" description="Three doorways into the same work: the monthly Journaling Mastermind, 1:1 mentoring with Eliana Reyes, and her music. Plus facilitation and speaking for organizations.">
 
   <!-- Beat: Promise -->
   <section class="section hero">
@@ -15,6 +17,9 @@ import Base from '../../layouts/Base.astro';
       </p>
     </div>
   </section>
+
+  <!-- From here down, each section stacks over the last like a card. -->
+  <div class="stack">
 
   <!-- Beat: Doorways -->
   <section class="section" style="padding-top:0;">
@@ -95,6 +100,11 @@ import Base from '../../layouts/Base.astro';
       <p class="muted">No pitch. No pressure. The gate's open either way.</p>
     </div>
   </section>
+
+  <GardenCTA />
+
+  </div>
+  <StackCards />
 
 </Base>
 

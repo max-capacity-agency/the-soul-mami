@@ -27,7 +27,13 @@
     });
     cards.forEach((card, i) => {
       const next = cards[i + 1];
-      const p = next && !reduce.matches ? Math.min(1, Math.max(0, (vh - rects[i + 1].top) / vh)) : 0;
+      // How far the next card has slid over this card's visible part. Measured from this
+      // card's own bottom (not the screen's), so a short card stays full size until it is
+      // actually being covered; shrinking any earlier would open a sliver at its edges.
+      const seen = Math.min(rects[i].bottom - rects[i].top, vh);
+      const p = next && !reduce.matches
+        ? Math.min(1, Math.max(0, (Math.min(rects[i].bottom, vh) - rects[i + 1].top) / seen))
+        : 0;
       const pv = p.toFixed(3);
       if (card.style.getPropertyValue('--stack-p') !== pv) card.style.setProperty('--stack-p', pv);
       scales[i] = 1 - 0.04 * Number(pv);

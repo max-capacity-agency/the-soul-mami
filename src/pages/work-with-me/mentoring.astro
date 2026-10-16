@@ -1,7 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
+import GardenCTA from '../../components/GardenCTA.astro';
+import StackCards from '../../components/StackCards.astro';
+import HoneyWaves from '../../components/HoneyWaves.astro';
 ---
-<Base title="1:1 Mentoring | The Soul Mami" description="One-on-one mentoring with Eliana Reyes. Untangle the loops, alchemize the emotions, and rebuild your self-trust, with a guide who walks beside you.">
+<Base hideGarden={true} title="1:1 Mentoring | The Soul Mami" description="One-on-one mentoring with Eliana Reyes. Untangle the loops, alchemize the emotions, and rebuild your self-trust, with a guide who walks beside you.">
 
   <!-- Beat: Invitation -->
   <section class="section hero">
@@ -25,6 +28,9 @@ import Base from '../../layouts/Base.astro';
       <img class="photo photo--arch" src="/images/eliana-river.jpg" alt="Eliana standing peacefully in a river, eyes closed, hand to her heart" fetchpriority="high" style="max-height:460px;" />
     </div>
   </section>
+
+  <!-- From here down, each section stacks over the last like a card. -->
+  <div class="stack">
 
   <!-- Beat: Reality -->
   <section class="section section--sand" id="what">
@@ -74,7 +80,8 @@ import Base from '../../layouts/Base.astro';
   </section>
 
   <!-- Beat: Proof -->
-  <section class="section section--sand">
+  <section class="section witnessed">
+    <HoneyWaves />
     <div class="wrap">
       <div class="prose center" style="margin-inline:auto;">
         <span class="eyebrow">Witnessed</span>
@@ -114,6 +121,11 @@ import Base from '../../layouts/Base.astro';
       </div>
     </div>
   </section>
+
+  <GardenCTA />
+
+  </div>
+  <StackCards />
 
 </Base>
 

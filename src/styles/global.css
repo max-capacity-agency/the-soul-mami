@@ -328,7 +328,7 @@ html.bi .bi-t.bi-in {
 .doorways .eyebrow::before,
 .doorways .eyebrow::after { background: var(--espresso); }
 
-/* Homepage "Witnessed": slow blurred honey waves behind the testimonials ------- */
+/* "Witnessed": slow blurred honey waves behind testimonials (HoneyWaves.astro) --- */
 
 .witnessed {
   position: relative;

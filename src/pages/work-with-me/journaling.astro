@@ -1,7 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import GardenCTA from '../../components/GardenCTA.astro';
+import StackCards from '../../components/StackCards.astro';
+import HoneyWaves from '../../components/HoneyWaves.astro';
+import SoulGallery from '../../components/SoulGallery';
 ---
-<Base title="The Journaling Mastermind | The Soul Mami" description="A monthly journaling mastermind with Eliana Reyes, first Sunday of every month. Pen, paper, good company, and your own inner voice.">
+<Base hideGarden={true} title="The Journaling Mastermind | The Soul Mami" description="A monthly journaling mastermind with Eliana Reyes, first Sunday of every month. Pen, paper, good company, and your own inner voice.">
 
   <!-- Beat: Invitation -->
   <section class="section hero">
@@ -24,6 +28,9 @@ import Base from '../../layouts/Base.astro';
       <img class="photo photo--arch" src="/images/circle-rest.jpg" alt="Circle members resting close together on blankets, smiling" fetchpriority="high" style="max-height:460px;" />
     </div>
   </section>
+
+  <!-- From here down, each section stacks over the last like a card. -->
+  <div class="stack">
 
   <!-- Beat: Reality -->
   <section class="section section--sand">
@@ -75,7 +82,8 @@ import Base from '../../layouts/Base.astro';
   </section>
 
   <!-- Beat: Proof -->
-  <section class="section section--sand">
+  <section class="section witnessed">
+    <HoneyWaves />
     <div class="wrap">
       <div class="prose center" style="margin-inline:auto;">
         <span class="eyebrow">From the Circle</span>
@@ -104,8 +112,19 @@ import Base from '../../layouts/Base.astro';
     </div>
   </section>
 
+  <!-- Beat: In Motion -->
+  <section class="section gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <div class="center prose">
+        <span class="eyebrow">In Motion</span>
+        <h2 id="gallery-title">Moments from the circle</h2>
+      </div>
+      <SoulGallery client:visible />
+    </div>
+  </section>
+
   <!-- Beat: Questions -->
-  <section class="section">
+  <section class="section section--sand">
     <div class="wrap prose">
       <span class="eyebrow">Questions</span>
       <h2>Wondering…</h2>
@@ -132,10 +151,16 @@ import Base from '../../layouts/Base.astro';
     </div>
   </section>
 
+  <GardenCTA />
+
+  </div>
+  <StackCards />
+
 </Base>
 
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .gallery { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
   .step-num {
     font-family: var(--font-display);

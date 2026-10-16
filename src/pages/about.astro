@@ -1,7 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import StatBar from '../components/StatBar.astro';
+import GardenCTA from '../components/GardenCTA.astro';
+import StackCards from '../components/StackCards.astro';
+import Parallax from '../components/Parallax.astro';
 ---
-<Base title="About Eliana | The Soul Mami" description="Eliana Reyes comes from a lineage of beekeepers, farmers, and storytellers. TEDx speaker, author of two books, facilitator of 200+ circles, and a life-liver, not a guru.">
+<Base hideGarden={true} title="About Eliana | The Soul Mami" description="Eliana Reyes comes from a lineage of beekeepers, farmers, and storytellers. TEDx speaker, author of two books, facilitator of 200+ circles, and a life-liver, not a guru.">
 
   <!-- Beat: Positioning -->
   <section class="section hero">
@@ -18,6 +22,12 @@ import Base from '../layouts/Base.astro';
       <img class="photo photo--arch" src="/images/eliana-frame.jpg" alt="Eliana grinning through an empty vintage picture frame in a garden" style="max-height:480px;" fetchpriority="high" />
     </div>
   </section>
+
+  <!-- Beat: Proof -->
+  <StatBar />
+
+  <!-- From Lineage down, each section stacks over the last like a card. -->
+  <div class="stack">
 
   <!-- Beat: Lineage -->
   <section class="section section--sand">
@@ -53,36 +63,13 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 
-  <!-- Beat: Credentials -->
-  <section class="section">
-    <div class="wrap">
-      <div class="prose">
-        <span class="eyebrow">Receipts</span>
-        <h2>The trail so far</h2>
-        <p class="lead">
-          I lead with soul, but I've also put in the reps.
-        </p>
-      </div>
-      <div class="grid-3" style="margin-top:2rem;">
-        <div class="card">
-          <h3>200+ circles</h3>
-          <p>Cohorts, workshops, and circles facilitated over the years. Rooms where people practice being human together.</p>
-        </div>
-        <div class="card">
-          <h3>Two books &amp; a TEDx talk</h3>
-          <!-- TODO: book titles, links, and TEDx video URL from Eliana -->
-          <p>Written words and spoken ones. The TEDx stage and the page, both in service of the same message.</p>
-        </div>
-        <div class="card">
-          <h3>Music on Spotify</h3>
-          <p>Original songs, independently made. Another doorway into the work, for the days words alone don't cut it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Beat: The Core -->
-  <section class="section section--dark">
+  <section class="section section--dark core">
+    <picture class="core-bg" data-parallax>
+      <source srcset="/images/circle-night.webp" type="image/webp" />
+      <img src="/images/circle-night.jpg" alt="" width="1000" height="750" loading="lazy" decoding="async" />
+    </picture>
+    <span class="core-shade" aria-hidden="true"></span>
     <div class="wrap prose center">
       <span class="eyebrow">The Core</span>
       <h2>Self-belonging is the whole thing.</h2>
@@ -131,9 +118,51 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 
+  <GardenCTA />
+
+  </div>
+  <StackCards />
+  <Parallax />
+
 </Base>
 
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem) var(--space-section); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.5rem; }
+
+  /* The Core: full-screen night-circle photo, parallax, under a warm dark shade */
+  .core {
+    position: relative; /* becomes sticky inside the card stack */
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: #140d08;
+  }
+  :global(.stack--on) > .core { position: sticky; }
+  .core > .wrap { width: 100%; }
+  .core-bg {
+    position: absolute;
+    /* Taller than the section: the extra is the parallax travel, hidden by overflow. */
+    inset: 0 0 -18% 0;
+    z-index: -2;
+    will-change: transform;
+  }
+  .core-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+  /* Small caps over a photo: the lighter amber keeps the eyebrow readable past the string lights. */
+  .core .eyebrow { color: var(--amber); }
+  .core-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 75% 70% at 50% 45%, rgb(20 13 8 / 0.9), rgb(20 13 8 / 0.62));
+  }
 </style>
