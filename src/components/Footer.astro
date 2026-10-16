@@ -33,6 +33,7 @@ const year = new Date().getFullYear();
   </div>
   <div class="wrap legal">
     <p class="muted">© {year} The Soul Mami · Eliana Reyes. All rights reserved.</p>
+    <p class="muted credit">Website design &amp; development by <a href="https://www.maxcapacityagency.com/" rel="noopener" target="_blank">Max Capacity Marketing</a></p>
   </div>
 </footer>
 
@@ -66,7 +67,17 @@ const year = new Date().getFullYear();
   li { margin-bottom: 0.45rem; }
   ul a { text-decoration: none; color: var(--bark); font-weight: 600; }
   ul a:hover { color: var(--clay); }
-  .legal { margin-top: 2.5rem; font-size: 0.88rem; }
+  .legal {
+    margin-top: 2.5rem;
+    font-size: 0.88rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem 2rem;
+  }
+  .legal p { margin: 0; color: var(--bark); }
+  .credit a { color: inherit; text-underline-offset: 0.2em; white-space: nowrap; }
+  .credit a:hover { color: var(--clay); }
   @media (max-width: 760px) {
     .grid { grid-template-columns: 1fr; gap: 1.8rem; }
   }
