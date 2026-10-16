@@ -467,8 +467,9 @@ html.bi .bi-t.bi-in {
   box-shadow: 0 -24px 48px -30px rgba(47, 35, 24, 0.5);
   transform-origin: 50% var(--stack-origin, 50%);
   transform: scale(calc(1 - 0.04 * var(--stack-p, 0)));
-  will-change: transform;
 }
+/* Buried two or more cards deep: skip painting so buried sections don't hold GPU layers. */
+.stack--on > [data-stack-buried="true"] { visibility: hidden; }
 /* Cards need an opaque background so the card underneath doesn't show through. */
 :where(.stack--on) > section { background-color: var(--paper); }
 /* The card being covered dims slightly as the next one slides over it. */

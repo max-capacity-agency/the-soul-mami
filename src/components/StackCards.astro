@@ -2,7 +2,9 @@
 // Stacking cards for the direct children of `.stack`: each section sticks while
 // the next slides over it. Tall sections stick only once their bottom is in view,
 // so nothing is covered before it has been seen. Covered cards get
-// data-stack-covered="true" so heavy effects (the cloud sky) can pause.
+// data-stack-covered="true" (heavy effects like the sky pause); cards buried two
+// or more deep get data-stack-buried="true" and stop painting, which keeps the
+// number of GPU layers bounded however far down the stack you scroll.
 ---
 <script is:inline>
 (() => {
@@ -12,18 +14,40 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let vh = innerHeight;
   let raf = 0;
+  const origins = cards.map(() => 0);  // transform-origin y per card (px from its top)
+  const scales = cards.map(() => 1);   // scale currently applied per card
 
   const update = () => {
     raf = 0;
-    const tops = cards.map((c) => c.getBoundingClientRect().top);
+    // Layout boxes without the shrink transform, so coverage isn't thrown off by the 4% scale.
+    const rects = cards.map((c, i) => {
+      const r = c.getBoundingClientRect();
+      const top = r.top - origins[i] * (1 - scales[i]);
+      return { top, bottom: top + c.offsetHeight };
+    });
     cards.forEach((card, i) => {
       const next = cards[i + 1];
-      const p = next && !reduce.matches ? Math.min(1, Math.max(0, (vh - tops[i + 1]) / vh)) : 0;
-      card.style.setProperty('--stack-p', p.toFixed(3));
-      let covered = false;
-      for (let j = i + 1; j < cards.length; j++) {
-        if (tops[j] <= 0.5 && cards[j].offsetHeight >= vh) { covered = true; break; }
+      const p = next && !reduce.matches ? Math.min(1, Math.max(0, (vh - rects[i + 1].top) / vh)) : 0;
+      const pv = p.toFixed(3);
+      if (card.style.getPropertyValue('--stack-p') !== pv) card.style.setProperty('--stack-p', pv);
+      scales[i] = 1 - 0.04 * Number(pv);
+      // Covered: a later card spans this card's whole on-screen part (pause effects).
+      // Buried: covered by a card at least two above it (stop painting). The card
+      // directly underneath the top one always stays painted, so scrolling back up
+      // never reveals a card whose visibility hasn't caught up yet (scrolling runs
+      // ahead of this script on its own thread). Cards below the screen stay painted.
+      const shownTop = Math.max(rects[i].top, 0);
+      const shownBottom = Math.min(rects[i].bottom, vh);
+      const spans = (j) => rects[j].top <= shownTop + 0.5 && rects[j].bottom >= shownBottom - 0.5;
+      let covered = rects[i].bottom <= 0;
+      let buried = covered;
+      if (!covered && rects[i].top < vh) {
+        for (let j = i + 1; j < cards.length; j++) {
+          if (spans(j)) { covered = true; if (j >= i + 2) { buried = true; break; } }
+        }
       }
+      const b = String(buried);
+      if (card.dataset.stackBuried !== b) card.dataset.stackBuried = b;
       const value = String(covered);
       if (card.dataset.stackCovered !== value) card.dataset.stackCovered = value;
     });
@@ -31,12 +55,13 @@
 
   const layout = () => {
     vh = innerHeight;
-    for (const card of cards) {
+    cards.forEach((card, i) => {
       const h = card.offsetHeight;
       const top = Math.min(0, vh - h);
+      origins[i] = -top + Math.min(h, vh) / 2;
       card.style.setProperty('--stack-top', `${top}px`);
-      card.style.setProperty('--stack-origin', `${-top + Math.min(h, vh) / 2}px`);
-    }
+      card.style.setProperty('--stack-origin', `${origins[i]}px`);
+    });
     update();
   };
 
