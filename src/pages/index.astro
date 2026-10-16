@@ -51,7 +51,7 @@ const fmt = (d: Date) =>
   </section>
 
   <!-- Beat: The Remembering -->
-  <section class="section section--sand">
+  <section class="section remembering">
     <div class="wrap">
       <div class="center prose">
         <span class="eyebrow">The Remembering</span>
@@ -62,23 +62,27 @@ const fmt = (d: Date) =>
           in the most important marriage you'll ever be in.
         </p>
       </div>
-      <div class="grid-3 pillars">
-        <div class="card">
+      <ul class="notes" role="list">
+        <li class="note note--honey">
+          <span class="tape tape--stripes" aria-hidden="true"></span>
           <span class="pillar-num">01</span>
           <h3>Know yourself</h3>
           <p>Meet the you underneath the roles. Get honest about what you feel, what you want, and what you've been avoiding. Your inner intelligence has been waiting.</p>
-        </div>
-        <div class="card">
+        </li>
+        <li class="note note--clay">
+          <span class="tape tape--bees tape--left" aria-hidden="true"></span>
+          <span class="tape tape--bees tape--right" aria-hidden="true"></span>
           <span class="pillar-num">02</span>
           <h3>Be with yourself</h3>
           <p>Build the relationship. Sit with your emotions instead of outrunning them. Every single one carries a lesson, and you can learn to alchemize them all.</p>
-        </div>
-        <div class="card">
+        </li>
+        <li class="note note--sage">
+          <span class="tape tape--dots" aria-hidden="true"></span>
           <span class="pillar-num">03</span>
           <h3>Live as yourself</h3>
           <p>Express, create, and move through the world as the real you. There's stuff only you came here to say, and we need to see it.</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -283,16 +287,107 @@ const fmt = (d: Date) =>
     font-weight: 700;
   }
 
-  /* Pillars */
-  .pillars { margin-top: 2.5rem; }
+  /* The Remembering: a kraft dot-grid journal page with notes taped to it */
+  .remembering {
+    background-color: #ecdcbd;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .23 0 0 0 0 .16 0 0 0 0 .09 .55 0 0 0 -.18'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+      radial-gradient(circle, rgb(47 35 24 / 0.16) 1.1px, transparent 1.6px);
+    background-size: 220px 220px, 24px 24px;
+  }
+  .notes {
+    list-style: none;
+    margin: 3rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .note {
+    --tilt: -2deg;
+    position: relative;
+    padding: 2.3rem 1.8rem 2rem;
+    background: linear-gradient(170deg, var(--note) 0%, var(--note) 70%, var(--note-edge) 100%);
+    border-radius: 2px 2px 3px 18px / 2px 2px 3px 6px; /* the bottom-left corner lifts a little */
+    box-shadow:
+      0 1px 1px rgb(47 35 24 / 0.08),
+      0 14px 22px -12px rgb(47 35 24 / 0.38);
+    transform: rotate(var(--tilt));
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .note:nth-child(2) { --tilt: 1.5deg; margin-top: 1.25rem; }
+  .note:nth-child(3) { --tilt: -1deg; }
+  .note:hover {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow:
+      0 1px 1px rgb(47 35 24 / 0.08),
+      0 24px 34px -16px rgb(47 35 24 / 0.42);
+  }
+  .note--honey { --note: #f8e6b0; --note-edge: #f1d896; }
+  .note--clay { --note: #f6dccf; --note-edge: #efcbb9; }
+  .note--sage { --note: #e3e6cb; --note-edge: #d6dab8; }
+  .note h3 {
+    margin: 0.15rem 0 0.6rem;
+    font-family: var(--font-hand);
+    font-weight: 600;
+    font-size: 2.15rem;
+    line-height: 1.05;
+    letter-spacing: 0;
+    color: var(--espresso);
+  }
+  .note p { margin: 0; color: var(--bark); }
   .pillar-num {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 400;
-    color: var(--honey);
+    color: var(--clay-deep);
     letter-spacing: 0.1em;
   }
-  .pillars h3 { margin-top: 0.4rem; }
+
+  /* Washi tape: translucent strips with torn ends */
+  .tape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    width: 112px;
+    height: 30px;
+    margin-left: -56px;
+    transform: rotate(-3deg);
+    opacity: 0.88;
+    box-shadow: 0 1px 2px rgb(47 35 24 / 0.12);
+    clip-path: polygon(0 6%, 3% 0, 97% 0, 100% 12%, 97% 28%, 100% 45%, 96% 60%, 100% 78%, 97% 92%, 100% 100%, 3% 100%, 0 88%, 3% 72%, 0 55%, 4% 38%, 0 22%);
+  }
+  .tape--stripes {
+    background: repeating-linear-gradient(-45deg, rgb(217 149 43 / 0.62) 0 7px, rgb(232 179 75 / 0.34) 7px 14px);
+  }
+  .tape--bees {
+    width: 92px;
+    margin-left: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='30' viewBox='0 0 24 24'%3E%3Cg transform='translate(4 3) scale(.66) rotate(-18 12 12)'%3E%3Cellipse cx='12' cy='14' rx='5' ry='6.5' fill='%23d9952b'/%3E%3Cpath d='M8.4 11.5h7.2M7.9 14h8.2M8.4 16.5h7.2' stroke='%232f2318' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='6.5' r='2.6' fill='%232f2318'/%3E%3Cellipse cx='5.5' cy='9.5' rx='4' ry='2.3' transform='rotate(-28 5.5 9.5)' fill='%23fff8e6'/%3E%3Cellipse cx='18.5' cy='9.5' rx='4' ry='2.3' transform='rotate(28 18.5 9.5)' fill='%23fff8e6'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 34px 30px,
+      rgb(253 246 232 / 0.72);
+  }
+  .tape--left { left: -26px; top: 2px; transform: rotate(-38deg); }
+  .tape--right { left: auto; right: -26px; top: 2px; transform: rotate(38deg); }
+  .tape--dots {
+    background:
+      radial-gradient(circle, rgb(95 104 68 / 0.55) 2px, transparent 2.6px) 0 0 / 12px 12px,
+      rgb(214 218 184 / 0.7);
+    transform: rotate(4deg);
+  }
+
+  @media (max-width: 860px) {
+    .notes { grid-template-columns: minmax(0, 26rem); justify-content: center; gap: 3rem; }
+    .note:nth-child(2) { margin-top: 0; }
+    .tape--bees { width: 76px; }
+    .tape--left { left: -12px; }
+    .tape--right { right: -12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .note { transition: none; }
+    .note:hover { transform: rotate(var(--tilt)); }
+  }
 
   /* Drawers */
   #doorways .grid-3 { margin-top: 2.5rem; }
