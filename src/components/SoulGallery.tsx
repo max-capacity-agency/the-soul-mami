@@ -11,14 +11,13 @@ const CIRCLE = {
   deck: { src: "/images/gallery-7.webp", alt: "People resting on mats on a bamboo deck at sunset" },
   laughing: { src: "/images/gallery-8.webp", alt: "Eliana laughing with friends at a lively evening get-together" },
   picnic: { src: "/images/gallery-9.webp", alt: "A picnic on blankets under the trees by a lake" },
-  lake: { src: "/images/gallery-10.webp", alt: "Eliana and friends arm in arm by a lake at golden hour" },
 };
 
 /** Homepage "Moments from the circle". */
 const HOME = [CIRCLE.night, CIRCLE.cacao, CIRCLE.kitchen, CIRCLE.hammock, CIRCLE.blankets, CIRCLE.workshop, CIRCLE.deck];
-/** Journaling Hive "Moments from the Hive": adds the Hive photos, centred on the lake group, and leaves out
- *  the blankets photo, which is already that page's hero. The middle five (shown on phones) hold all three. */
-const HIVE = [CIRCLE.night, CIRCLE.cacao, CIRCLE.laughing, CIRCLE.kitchen, CIRCLE.lake, CIRCLE.hammock, CIRCLE.picnic, CIRCLE.workshop, CIRCLE.deck];
+/** Journaling Hive "Moments from the Hive": adds the Hive photos and centres on the blankets photo. The lake
+ *  group is left out because it is already that page's hero. The middle five (shown on phones) hold both new ones. */
+const HIVE = [CIRCLE.night, CIRCLE.cacao, CIRCLE.laughing, CIRCLE.kitchen, CIRCLE.blankets, CIRCLE.hammock, CIRCLE.picnic, CIRCLE.workshop, CIRCLE.deck];
 
 /** Width of the fanned stage relative to one card, from ArchGallery's own layout math. */
 const stageUnits = (count: number) => 1.2 + (count - 1) * 0.58;
