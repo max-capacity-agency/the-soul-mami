@@ -191,16 +191,22 @@ const fmt = (d: Date) =>
         <h2>Songs for the journey home</h2>
         <p class="lead">Music is medicine I make. A new song is on its way. Plant yourself in the garden to hear it first.</p>
       </div>
-      <div class="grid-2 tracks">
+      <div class="grid-3 tracks">
         <iframe
-          title="Listen on Spotify: track one"
-          src="https://open.spotify.com/embed/track/2ybpZWpAaFt0XiwCFNeltB"
+          title="Listen on Spotify: Access Granted"
+          src="https://open.spotify.com/embed/track/70dtuD0MN4VkM5nascxOiI"
           width="100%" height="152" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"></iframe>
         <iframe
-          title="Listen on Spotify: track two"
+          title="Listen on Spotify: Gracias"
           src="https://open.spotify.com/embed/track/7CoNuwBPZTLeqnS7lMdR6L"
+          width="100%" height="152" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+        <iframe
+          title="Listen on Spotify: In The Name of Love"
+          src="https://open.spotify.com/embed/track/2ybpZWpAaFt0XiwCFNeltB"
           width="100%" height="152" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"></iframe>
@@ -462,6 +468,10 @@ const fmt = (d: Date) =>
   /* Tracks */
   .tracks { margin-top: 2.5rem; align-items: center; }
   .tracks iframe { border-radius: 14px; border: 0; }
+  /* Three compact players need about 330px each; below that, one column. */
+  @media (max-width: 1000px) {
+    .tracks { grid-template-columns: minmax(0, 34rem); justify-content: center; }
+  }
 
   /* Journal teaser */
   .entry { text-decoration: none; color: inherit; display: block; }

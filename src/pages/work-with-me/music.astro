@@ -25,11 +25,11 @@ import StackCards from '../../components/StackCards.astro';
   <!-- Beat: The Songs -->
   <section class="section" style="padding-top:0;">
     <div class="wrap tracks">
-      <!-- TODO: track titles + the story behind each song from Eliana -->
+      <!-- TODO: the story behind each song from Eliana -->
       <div class="track">
         <iframe
-          title="Listen on Spotify: track one"
-          src="https://open.spotify.com/embed/track/2ybpZWpAaFt0XiwCFNeltB"
+          title="Listen on Spotify: Access Granted"
+          src="https://open.spotify.com/embed/track/70dtuD0MN4VkM5nascxOiI"
           width="100%" height="232" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"></iframe>
@@ -37,8 +37,17 @@ import StackCards from '../../components/StackCards.astro';
       </div>
       <div class="track">
         <iframe
-          title="Listen on Spotify: track two"
+          title="Listen on Spotify: Gracias"
           src="https://open.spotify.com/embed/track/7CoNuwBPZTLeqnS7lMdR6L"
+          width="100%" height="232" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+        <p class="muted">The story behind this one is coming. For now, just press play and feel it.</p>
+      </div>
+      <div class="track">
+        <iframe
+          title="Listen on Spotify: In The Name of Love"
+          src="https://open.spotify.com/embed/track/2ybpZWpAaFt0XiwCFNeltB"
           width="100%" height="232" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"></iframe>
@@ -91,14 +100,10 @@ import StackCards from '../../components/StackCards.astro';
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
   .tracks {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 900px;
-    margin-inline: auto;
+    grid-template-columns: minmax(0, 40rem);
+    justify-content: center;
+    gap: 2.5rem;
   }
   .track iframe { border-radius: 14px; border: 0; }
   .track p { margin-top: 0.9rem; font-size: 0.95rem; }
-  @media (max-width: 760px) {
-    .tracks { grid-template-columns: 1fr; }
-  }
 </style>
