@@ -9,6 +9,7 @@ import Parallax from '../components/Parallax.astro';
 import SoulGallery from '../components/SoulGallery';
 import StatBar from '../components/StatBar.astro';
 import HoneyWaves from '../components/HoneyWaves.astro';
+import Icon from '../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 const entries = (await getCollection('journal'))
@@ -80,7 +81,7 @@ const fmt = (d: Date) =>
           <span class="tape tape--dots" aria-hidden="true"></span>
           <span class="pillar-num">03</span>
           <h3>Live as yourself</h3>
-          <p>Express, create, and move through the world as the real you. There's stuff only you came here to say, and we need to see it.</p>
+          <p>Express, create, and move through the world as the real you. There's stuff only you came here to express, and we need to see it.</p>
         </li>
       </ul>
     </div>
@@ -97,20 +98,20 @@ const fmt = (d: Date) =>
       </div>
       <div class="grid-3">
         <a class="card drawer" href="/work-with-me/journaling/">
-          <div class="drawer-ph" aria-hidden="true">📓</div>
-          <h3>The Journaling Mastermind</h3>
+          <div class="drawer-ph"><Icon name="notebook" /></div>
+          <h3>The Journaling Hive</h3>
           <p>First Sunday of every month, we gather, we write, we get real. Pen and paper as a doorway to your own inner voice, in very good company.</p>
           <span class="drawer-link">Come write with us &rarr;</span>
         </a>
         <a class="card drawer" href="/work-with-me/mentoring/">
-          <div class="drawer-ph" aria-hidden="true">🕯️</div>
+          <div class="drawer-ph"><Icon name="candle" /></div>
           <h3>1:1 Mentoring</h3>
           <p>You and me, working through what's actually going on. Bring any emotion. I'm an emotional alchemist; we'll transmute it and get the lesson.</p>
           <span class="drawer-link">Work with me &rarr;</span>
         </a>
         <a class="card drawer" href="/work-with-me/music/">
-          <div class="drawer-ph" aria-hidden="true">🎶</div>
-          <h3>The Music</h3>
+          <div class="drawer-ph"><Icon name="notes" /></div>
+          <h3>La Musica</h3>
           <p>Songs from the same soul, another way in. Sometimes a melody reaches the places a conversation can't.</p>
           <span class="drawer-link">Press play &rarr;</span>
         </a>
@@ -148,7 +149,7 @@ const fmt = (d: Date) =>
         </p>
         <a class="btn btn--ghost" href="/about/">Read my story</a>
       </div>
-      <img class="photo photo--arch lineage-portrait" src="/images/eliana-hero.jpg" alt="Eliana Reyes laughing joyfully, face painted, surrounded by greenery" loading="lazy" />
+      <img class="photo photo--arch lineage-portrait" src="/images/eliana-hero.jpg" alt="Eliana laughing joyfully, face painted, surrounded by greenery" loading="lazy" />
     </div>
   </section>
 
@@ -160,7 +161,13 @@ const fmt = (d: Date) =>
         <span class="eyebrow">Witnessed</span>
         <h2>Words from people who've been in the room</h2>
       </div>
-      <div class="grid-3" style="margin-top:2.5rem;">
+      <div class="grid-2" style="margin-top:2.5rem; max-width: 60rem; margin-inline:auto;">
+        <figure class="card quote">
+          <blockquote>
+            <p>"Working with Eliana was an amazing honor and for three months it was the most amazing feeling knowing there is someone in your corner working with you for your highest benefit. Through exercises, questions and honest conversations, I discovered different abilities to help sift through my emotions, fears and inner turbulence. I feel more independent and yet more co-dependent on the universe at the same time."</p>
+          </blockquote>
+          <figcaption>Jessica F. Gonzalez, Esq. · 1:1 mentoring</figcaption>
+        </figure>
         <figure class="card quote">
           <blockquote>
             <p>"Her course helped me first release broken past pieces of myself I didn't even know I was holding on to. She equipped me with tools and exercises that I STILL use and gave me the confidence to just be me."</p>
@@ -399,7 +406,7 @@ const fmt = (d: Date) =>
   #doorways .grid-3 { margin-top: 2.5rem; }
   .drawer { text-decoration: none; color: inherit; display: block; }
   .drawer-ph {
-    font-size: 2rem;
+    color: var(--bark);
     width: 62px;
     height: 62px;
     display: grid;

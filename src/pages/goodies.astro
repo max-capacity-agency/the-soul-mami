@@ -1,12 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 ---
-<Base title="Goodies | The Soul Mami" description="Free tools for self-connection from Eliana Reyes: journaling prompts, practices, and resources. Take what you need.">
+<Base title="Free Honey | The Soul Mami" description="Free tools for self-connection from Eliana, the Soul Mami: journaling prompts, practices, and resources. Take what you need.">
 
   <section class="section hero">
     <div class="wrap prose center">
       <span class="eyebrow">Free · Always</span>
-      <h1>Goodies from the <em class="soul">hive</em></h1>
+      <h1>Free honey from the <em class="soul">hive</em></h1>
       <p class="lead">
         Tools for self-connection, free for the taking. Start
         anywhere. Take what you need, share what helps, come back for
@@ -16,45 +17,57 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <section class="section" style="padding-top:0;">
-    <div class="wrap grid-3">
-      <!-- TODO: swap these for Eliana's real freebies (PDFs, downloads, links) as they're ready -->
+    <div class="wrap grid-3 honey-grid">
+      <!-- TODO: swap the "Coming soon" cards for Eliana's real freebies (PDFs, downloads, links) as they're ready -->
       <div class="card">
-        <div class="icon" aria-hidden="true">📝</div>
+        <div class="icon"><Icon name="sprout" size={28} /></div>
+        <h3>Letters from the garden</h3>
+        <p>The first goodie is the ongoing one: journal entries, new tools, and first word on everything, straight to your inbox.</p>
+        <a class="tag tag--live" href="/garden/">Join free &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon"><Icon name="pencil" size={28} /></div>
         <h3>Journaling prompts to meet yourself</h3>
-        <p>A starter set of the kinds of prompts we use in the mastermind, for the mornings you want to go deeper than "today I…".</p>
+        <p>A starter set of the kinds of prompts we use in the Journaling Hive, for the mornings you want to go deeper than "today I…".</p>
         <span class="tag">Coming soon</span>
       </div>
       <div class="card">
-        <div class="icon" aria-hidden="true">🎧</div>
+        <div class="icon"><Icon name="headphones" size={28} /></div>
         <h3>The songs</h3>
-        <p>My music is a free tool too. Two songs live now, one in the hive. Press play while you write.</p>
+        <p>My music is a free tool too. Three songs live now. Press play while you write.</p>
         <a class="tag tag--live" href="/work-with-me/music/">Listen now &rarr;</a>
       </div>
       <div class="card">
-        <div class="icon" aria-hidden="true">🎤</div>
+        <div class="icon"><Icon name="notes" size={28} /></div>
+        <h3>The Dance Heals playlist</h3>
+        <p>My own Spotify playlist for moving your body. Put it on, shake out the week, and let the feelings move through you.</p>
+        <a class="tag tag--live" href="https://spoti.fi/2Wi4tnE" target="_blank" rel="noopener">Press play &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon"><Icon name="podcast" size={28} /></div>
+        <h3>Podcast conversations</h3>
+        <p>Me, talking soul on other people's mics. Start with the latest, on what self care actually demands, or go back to <a href="https://open.spotify.com/episode/00wc0NM5Tpdv3kKIdUvJpS" target="_blank" rel="noopener">my 2022 interview</a>.</p>
+        <a class="tag tag--live" href="https://open.spotify.com/episode/2KUt4qjkDIiP5ZF2GPgxay" target="_blank" rel="noopener">Listen to the latest &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon"><Icon name="mic" size={28} /></div>
         <h3>The TEDx talk</h3>
         <!-- TODO: embed TEDx video when Eliana sends the URL -->
-        <p>Me, on a stage, saying the thing I most want you to hear. The video will live right here.</p>
-        <span class="tag">Coming soon</span>
+        <p>Me, on a stage, saying the thing I most want you to hear. Until it's up, find me on YouTube.</p>
+        <a class="tag tag--live" href="https://www.youtube.com/@theSoulMami" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
       </div>
       <div class="card">
-        <div class="icon" aria-hidden="true">📚</div>
+        <div class="icon"><Icon name="books" size={28} /></div>
         <h3>The books</h3>
-        <!-- TODO: book titles, covers, and purchase links from Eliana -->
-        <p>Two books so far, more life to write about. Titles and where to find them are landing here shortly.</p>
-        <span class="tag">Coming soon</span>
+        <!-- TODO: second book title and link from Eliana -->
+        <p>Two books so far, more life to write about. Start with Mind Your Business.</p>
+        <a class="tag tag--live" href="https://amzn.to/2P3bhlA" target="_blank" rel="noopener">Get the book &rarr;</a>
       </div>
       <div class="card">
-        <div class="icon" aria-hidden="true">🕯️</div>
+        <div class="icon"><Icon name="candle" size={28} /></div>
         <h3>An emotional first-aid practice</h3>
         <p>What I actually do when a big feeling hits: the alchemist's short version, written down for you.</p>
         <span class="tag">Coming soon</span>
-      </div>
-      <div class="card">
-        <div class="icon" aria-hidden="true">🌱</div>
-        <h3>Letters from the garden</h3>
-        <p>The best goodie is the ongoing one: journal entries, new tools, and first word on everything, straight to your inbox.</p>
-        <a class="tag tag--live" href="/garden/">Join free &rarr;</a>
       </div>
     </div>
     <p class="center muted" style="margin-top:2.5rem;">
@@ -66,8 +79,17 @@ import Base from '../layouts/Base.astro';
 
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  /* Eight cards: three per row, with the last two centered under the rest. */
+  .honey-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .honey-grid > * { grid-column: span 2; }
+  .honey-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: 2 / span 2; }
+  @media (max-width: 860px) {
+    .honey-grid { grid-template-columns: 1fr; }
+    .honey-grid > *,
+    .honey-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: auto; }
+  }
   .icon {
-    font-size: 1.8rem;
+    color: var(--bark);
     width: 56px;
     height: 56px;
     display: grid;

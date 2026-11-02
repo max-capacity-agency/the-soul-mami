@@ -14,7 +14,7 @@ function Opening() {
       </h1>
       <div className="sp-below">
         <p className="sp-sub">
-          Journaling circles, 1:1 mentoring, and music for coming home to who you already are.
+          Journaling circles, 1:1 mentoring, analog meet-ups, and music for coming home to who you already are.
         </p>
         <div className="sp-scroll" aria-hidden="true">
           <span className="sp-scroll-icon">
@@ -33,7 +33,7 @@ function Opening() {
 function Scene() {
   return (
     <div className="sp-scene">
-      <img src="/images/eliana-gold.jpg" alt="" decoding="async" fetchPriority="high" />
+      <img src="/images/eliana-home.jpg" alt="" decoding="async" fetchPriority="high" />
       <div className="sp-shade" />
     </div>
   );
