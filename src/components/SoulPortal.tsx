@@ -51,7 +51,7 @@ function Inside() {
       </p>
       <div className="sp-ctas">
         <a className="btn btn--honey" href="/garden/">Join my Garden</a>
-        <a className="btn btn--ghost sp-ghost" href="#doorways">Open the drawers</a>
+        <a className="btn btn--ghost sp-ghost" href="#doorways">Open the doors</a>
       </div>
     </div>
   );

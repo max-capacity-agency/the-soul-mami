@@ -3,7 +3,7 @@
 // One style throughout: slightly wobbly 1.8px bark strokes, round ends, and a
 // single honey-filled accent per icon. Colour comes from the badge (currentColor).
 interface Props {
-  name: 'notebook' | 'candle' | 'notes' | 'pencil' | 'headphones' | 'mic' | 'books' | 'sprout' | 'podcast';
+  name: 'notebook' | 'candle' | 'notes' | 'pencil' | 'headphones' | 'mic' | 'books' | 'sprout' | 'podcast' | 'play';
   size?: number;
 }
 const { name, size = 30 } = Astro.props;
@@ -80,6 +80,13 @@ const { name, size = 30 } = Astro.props;
       <path d="M16 25.4c-.2-4.2 0-8 .4-11.7" />
       <path class="hi-fill" d="M16.1 17.3c-3.9.4-7.1-1.7-7.9-5.6 3.9-.6 7 1.4 7.9 5.6Z" />
       <path class="hi-fill" d="M16.5 13.7c.5-4.2 3.6-6.9 7.6-6.8-.1 4-3.4 6.8-7.6 6.8Z" />
+    </>
+  )}
+  {name === 'play' && (
+    <>
+      <path d="M5.6 9.4c6.9-.9 13.9-.9 20.8 0 .7 4.4.7 8.8 0 13.2-6.9.9-13.9.9-20.8 0-.7-4.4-.7-8.8 0-13.2Z" />
+      <path class="hi-fill" d="M13.6 12.4c2.1 1 4.1 2.2 5.9 3.6-1.8 1.4-3.8 2.6-5.9 3.6-.3-2.4-.3-4.8 0-7.2Z" />
+      <path d="M11.4 26.4c3 .4 6.1.4 9.2 0" />
     </>
   )}
   {name === 'podcast' && (
