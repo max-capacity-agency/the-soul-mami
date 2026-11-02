@@ -27,7 +27,7 @@ import StackCards from '../../components/StackCards.astro';
   <div class="stack">
 
   <!-- Beat: Doorways -->
-  <section class="section" style="padding-top:0;">
+  <section class="section doors">
     <div class="wrap drawer-stack">
 
       <a class="card drawer-row" href="/work-with-me/journaling/">
@@ -121,6 +121,7 @@ import StackCards from '../../components/StackCards.astro';
   @media (max-width: 700px) {
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
   }
+  .doors { padding-top: clamp(2.5rem, 5vw, 4rem); }
   .drawer-stack { display: grid; gap: 2rem; }
   .drawer-row {
     display: grid;
