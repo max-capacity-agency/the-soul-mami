@@ -4,7 +4,8 @@
 // form's action URL (it looks like
 // https://XXXX.usNN.list-manage.com/subscribe/post?u=...&id=...&f_id=...)
 // and paste it below. Until then the forms keep saving to Netlify Forms.
-const MAILCHIMP_FORM_ACTION = '';
+const MAILCHIMP_FORM_ACTION =
+  'https://thesoulmami.us21.list-manage.com/subscribe/post?u=5a82377e916d489b6d0775ac4&amp;id=5f1da6f517&amp;f_id=00458ce6f0';
 
 export interface MailchimpForm {
   action: string;

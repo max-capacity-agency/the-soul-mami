@@ -460,6 +460,8 @@ html.bi .bi-t.bi-in {
 
 /* Mailchimp's bot-trap field (see lib/mailchimp.ts): kept off-screen, never filled by people. */
 .mc-trap { position: absolute; left: -5000px; }
+.garden-form[hidden] { display: none !important; }
+.garden-status { margin: 1.25rem auto 1rem; max-width: 34rem; font-weight: 600; text-wrap: balance; }
 
 /* Stacking cards (see components/StackCards.astro) ------------------------- */
 

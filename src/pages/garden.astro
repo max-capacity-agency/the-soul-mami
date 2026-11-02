@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Bee from '../components/Bee.astro';
 import { mailchimp } from '../lib/mailchimp';
+import GardenSignup from '../components/GardenSignup.astro';
 ---
 <Base title="Join my Garden | The Soul Mami" hideGarden={true} description="Join Eliana's garden: letters with journal entries, new songs, free tools for self-connection, and first word on the next Hive gathering.">
 
@@ -27,17 +28,21 @@ import { mailchimp } from '../lib/mailchimp';
         name="garden"
         method="POST"
         {...(mailchimp
-          ? { action: mailchimp.action, target: '_blank', rel: 'noopener' }
+          ? { action: mailchimp.action, target: '_blank', rel: 'noopener', 'data-mailchimp': '' }
           : { 'data-netlify': 'true' })}
       >
         {!mailchimp && <input type="hidden" name="form-name" value="garden" />}
+        <label class="visually-hidden" for="garden-page-name">First name (optional)</label>
+        <input class="garden-name" id="garden-page-name" type="text" name={mailchimp ? 'FNAME' : 'name'} placeholder="First name" autocomplete="given-name" />
         <label class="visually-hidden" for="garden-page-email">Email address</label>
-        <input id="garden-page-email" type="email" name={mailchimp ? 'EMAIL' : 'email'} placeholder="Your email, mami" autocomplete="email" required />
+        <input class="garden-email" id="garden-page-email" type="email" name={mailchimp ? 'EMAIL' : 'email'} placeholder="Your email, mami" autocomplete="email" required />
         {mailchimp && (
           <div class="mc-trap" aria-hidden="true"><input type="text" name={mailchimp.honeypot} tabindex="-1" value="" autocomplete="off" /></div>
         )}
         <button class="btn btn--primary" type="submit">Plant me in</button>
       </form>
+      <p class="garden-status" role="status" aria-live="polite" hidden></p>
+      <GardenSignup />
       <div style="margin-top:2rem;"><Bee size={34} /></div>
       <img class="photo garden-photo" src="/images/eliana-play.jpg" alt="Eliana laughing in sparkly novelty sunglasses" loading="lazy" />
     </div>
@@ -67,10 +72,11 @@ import { mailchimp } from '../lib/mailchimp';
   .garden-form {
     display: flex;
     gap: 0.75rem;
-    max-width: 30rem;
+    max-width: 38rem;
     margin-inline: auto;
   }
-  .garden-form input { flex: 1; }
+  .garden-form .garden-name { flex: 0.7; min-width: 0; }
+  .garden-form .garden-email { flex: 1; min-width: 0; }
   .visually-hidden {
     position: absolute;
     width: 1px; height: 1px;

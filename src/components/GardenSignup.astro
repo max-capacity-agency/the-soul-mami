@@ -1,0 +1,62 @@
+---
+// Keeps Garden signups on the page: the forms marked data-mailchimp send to
+// Mailchimp's post-json endpoint (the same route Mailchimp's own embed script
+// uses) and show a thank-you in Eli's voice. Without JavaScript the form still
+// posts normally and Mailchimp's confirmation page opens in a new tab.
+// Each form is followed by its own <p class="garden-status"> for messages.
+---
+<script>
+  const TIMEOUT_MS = 12000;
+
+  const messageFor = (result: string, msg: string) => {
+    if (result === 'success') {
+      return /confirm/i.test(msg)
+        ? 'Almost planted! Check your inbox and confirm your email to join the garden.'
+        : "You're planted! Watch your inbox for honey.";
+    }
+    if (/already subscribed/i.test(msg)) return "You're already in the garden, mami. Your letters will keep coming.";
+    if (/too many/i.test(msg)) return 'Too many tries with this email. Give it a few minutes, then try again.';
+    if (/email/i.test(msg)) return "That email doesn't look quite right. Check it and try again.";
+    return "That didn't go through. Please try again in a moment.";
+  };
+
+  document.querySelectorAll<HTMLFormElement>('form[data-mailchimp]').forEach((form) => {
+    const status = form.nextElementSibling as HTMLElement | null;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const label = button?.textContent ?? '';
+
+    const show = (text: string) => {
+      if (!status) return;
+      status.textContent = text;
+      status.hidden = false;
+    };
+
+    form.addEventListener('submit', (event) => {
+      const action = form.getAttribute('action') ?? '';
+      if (!action.includes('/subscribe/post?')) return; // let the browser post it
+      event.preventDefault();
+      if (button) { button.disabled = true; button.textContent = 'Planting…'; }
+
+      const callback = `gardenSignup${Date.now()}`;
+      const params = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+      const script = document.createElement('script');
+      let timer = 0;
+
+      const finish = (result: string, msg: string) => {
+        window.clearTimeout(timer);
+        delete (window as unknown as Record<string, unknown>)[callback];
+        script.remove();
+        if (button) { button.disabled = false; button.textContent = label; }
+        show(messageFor(result, msg));
+        if (result === 'success') { form.reset(); form.hidden = true; }
+      };
+
+      (window as unknown as Record<string, unknown>)[callback] = (data: { result?: string; msg?: string }) =>
+        finish(data?.result ?? 'error', String(data?.msg ?? ''));
+      timer = window.setTimeout(() => finish('error', ''), TIMEOUT_MS);
+      script.onerror = () => finish('error', '');
+      script.src = `${action.replace('/subscribe/post?', '/subscribe/post-json?')}&${params}&c=${callback}`;
+      document.body.appendChild(script);
+    });
+  });
+</script>
