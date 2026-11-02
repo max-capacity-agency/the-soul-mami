@@ -458,6 +458,9 @@ html.bi .bi-t.bi-in {
   .btn::before { animation: none; opacity: 0; }
 }
 
+/* Mailchimp's bot-trap field (see lib/mailchimp.ts): kept off-screen, never filled by people. */
+.mc-trap { position: absolute; left: -5000px; }
+
 /* Stacking cards (see components/StackCards.astro) ------------------------- */
 
 .stack--on > * {

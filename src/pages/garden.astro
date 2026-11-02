@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Bee from '../components/Bee.astro';
+import { mailchimp } from '../lib/mailchimp';
 ---
 <Base title="Join my Garden | The Soul Mami" hideGarden={true} description="Join Eliana's garden: letters with journal entries, new songs, free tools for self-connection, and first word on the next Hive gathering.">
 
@@ -20,11 +21,21 @@ import Bee from '../components/Bee.astro';
         <li>First access to Hive gatherings, music, and goodies.</li>
         <li>Leave anytime. The gate never locks.</li>
       </ul>
-      <!-- TODO: point this form at Eliana's email platform (action URL + field names). Netlify Forms captures signups until then. -->
-      <form class="garden-form" name="garden" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="garden" />
+      <!-- Signups go to Mailchimp once src/lib/mailchimp.ts has the form URL; until then Netlify Forms keeps them. -->
+      <form
+        class="garden-form"
+        name="garden"
+        method="POST"
+        {...(mailchimp
+          ? { action: mailchimp.action, target: '_blank', rel: 'noopener' }
+          : { 'data-netlify': 'true' })}
+      >
+        {!mailchimp && <input type="hidden" name="form-name" value="garden" />}
         <label class="visually-hidden" for="garden-page-email">Email address</label>
-        <input id="garden-page-email" type="email" name="email" placeholder="Your email, mami" required />
+        <input id="garden-page-email" type="email" name={mailchimp ? 'EMAIL' : 'email'} placeholder="Your email, mami" autocomplete="email" required />
+        {mailchimp && (
+          <div class="mc-trap" aria-hidden="true"><input type="text" name={mailchimp.honeypot} tabindex="-1" value="" autocomplete="off" /></div>
+        )}
         <button class="btn btn--primary" type="submit">Plant me in</button>
       </form>
       <div style="margin-top:2rem;"><Bee size={34} /></div>
