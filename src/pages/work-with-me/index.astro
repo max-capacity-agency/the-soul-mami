@@ -16,11 +16,6 @@ import StackCards from '../../components/StackCards.astro';
         you. They all lead to the same room, YOU.
       </p>
     </div>
-    <div class="wrap">
-      <picture class="hero-photo">
-        <img class="photo" src="/images/wwm-lake-1600.jpg" srcset="/images/wwm-lake-900.jpg 900w, /images/wwm-lake-1600.jpg 1600w" sizes="(min-width: 1200px) 1100px, 100vw" width="1600" height="1200" alt="Eliana in a sun hat, arm in arm with a group of friends by a lake under a big tree at golden hour" fetchpriority="high" />
-      </picture>
-    </div>
   </section>
 
   <!-- From here down, each section stacks over the last like a card. -->
@@ -115,12 +110,6 @@ import StackCards from '../../components/StackCards.astro';
 
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
-  /* Wide group photo under the intro: a landscape crop on desktop, a little taller on phones so faces stay readable. */
-  .hero-photo { display: block; margin-top: clamp(2rem, 5vw, 3rem); }
-  .hero-photo img { aspect-ratio: 16 / 9; height: auto; object-position: 50% 70%; }
-  @media (max-width: 700px) {
-    .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
-  }
   .doors { padding-top: clamp(2.5rem, 5vw, 4rem); }
   .drawer-stack { display: grid; gap: 2rem; }
   .drawer-row {
