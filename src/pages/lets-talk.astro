@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { WEB3FORMS_ACCESS_KEY } from '../lib/site';
+const web3 = Boolean(WEB3FORMS_ACCESS_KEY);
 ---
 <Base title="Let's Talk | The Soul Mami" description="Reach out to Eliana about mentoring, the Journaling Hive, facilitation, workshops, or speaking. No pitch, no pressure.">
 
@@ -21,9 +23,28 @@ import Base from '../layouts/Base.astro';
         </ul>
       </div>
 
-      <form class="card talk-form" name="lets-talk" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="lets-talk" />
-        <p class="bot-trap" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+      <!-- Emails Eliana through Web3Forms once WEB3FORMS_ACCESS_KEY is set (lib/site.ts); until then Netlify Forms keeps the messages. -->
+      <form
+        class="card talk-form"
+        name="lets-talk"
+        method="POST"
+        {...(web3
+          ? { action: 'https://api.web3forms.com/submit', 'data-web3forms': '' }
+          : { 'data-netlify': 'true', 'netlify-honeypot': 'bot-field' })}
+      >
+        {web3 ? (
+          <>
+            <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+            <input type="hidden" name="subject" value="New message from thesoulmami.com" />
+            <input type="hidden" name="from_name" value="The Soul Mami website" />
+            <input type="checkbox" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          </>
+        ) : (
+          <>
+            <input type="hidden" name="form-name" value="lets-talk" />
+            <p class="bot-trap" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          </>
+        )}
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" required />
@@ -46,6 +67,7 @@ import Base from '../layouts/Base.astro';
           <textarea id="message" name="message" rows="6" required></textarea>
         </div>
         <button class="btn btn--primary" type="submit">Send it</button>
+        <p class="talk-status" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </section>
@@ -69,4 +91,39 @@ import Base from '../layouts/Base.astro';
   .talk-form { display: grid; gap: 1.1rem; }
   .talk-form:hover { transform: none; box-shadow: none; }
   .field { display: grid; gap: 0.2rem; }
+  .talk-status { margin: 0; font-weight: 600; }
 </style>
+
+<script>
+  // Sends the message to Web3Forms without leaving the page. Without JavaScript the
+  // form still posts, and Web3Forms shows its own confirmation page.
+  const form = document.querySelector<HTMLFormElement>('form[data-web3forms]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('.talk-status');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const label = button?.textContent ?? '';
+    const show = (text: string) => { if (status) { status.textContent = text; status.hidden = false; } };
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          form.reset();
+          show("Got it! Your message is on its way to me, and I'll write back soon.");
+        } else {
+          show("That didn't go through. Please check your details and try again.");
+        }
+      } catch {
+        show("That didn't go through. Please try again in a moment.");
+      } finally {
+        if (button) { button.disabled = false; button.textContent = label; }
+      }
+    });
+  }
+</script>

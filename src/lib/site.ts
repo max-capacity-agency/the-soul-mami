@@ -15,3 +15,10 @@ export const SHARE_IMAGE = '/og-image.jpg';
  * load no analytics at all; paste the ID from GA4 > Admin > Data streams to turn it on.
  */
 export const GA_MEASUREMENT_ID = '';
+
+/**
+ * Web3Forms access key for the Let's Talk form, so messages are emailed straight to
+ * Eliana. Leave empty to keep collecting them in Netlify Forms; paste the key that
+ * web3forms.com emails her to switch over. The key is public by design.
+ */
+export const WEB3FORMS_ACCESS_KEY = '';
