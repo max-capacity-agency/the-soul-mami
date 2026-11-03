@@ -5,7 +5,7 @@
  * Set to true to bring back the My Journal page, its nav and footer links,
  * and the "From my journal" section on the homepage.
  */
-export const SHOW_JOURNAL = false;
+export const SHOW_JOURNAL = true;
 
 /** Absolute URL of the default link-preview image (1200 x 630). */
 export const SHARE_IMAGE = '/og-image.jpg';
