@@ -4,6 +4,7 @@ import StatBar from '../components/StatBar.astro';
 import GardenCTA from '../components/GardenCTA.astro';
 import StackCards from '../components/StackCards.astro';
 import Parallax from '../components/Parallax.astro';
+import { SHOW_JOURNAL } from '../lib/site';
 ---
 <Base hideGarden={true} title="About Eliana | The Soul Mami" description="Eliana, the Soul Mami, comes from a lineage of beekeepers, farmers, and storytellers. TEDx speaker, author of two books, facilitator of 200+ circles, and a life-liver, not a guru.">
 
@@ -112,7 +113,7 @@ import Parallax from '../components/Parallax.astro';
       </p>
       <div class="cta-row">
         <a class="btn btn--primary" href="/work-with-me/">Work with me</a>
-        <a class="btn btn--ghost" href="/journal/">Read my journal</a>
+        {SHOW_JOURNAL && <a class="btn btn--ghost" href="/journal/">Read my journal</a>}
       </div>
       </div>
     </div>

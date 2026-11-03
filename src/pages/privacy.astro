@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+// Plain-language privacy notice. Keep it in step with what the site actually uses:
+// Mailchimp (Garden signups), Netlify (hosting, Let's Talk form), Spotify and
+// YouTube embeds, Calendly links, and Google Analytics once it's added.
+const updated = 'November 3, 2026';
+---
+<Base title="Privacy | The Soul Mami" description="How The Soul Mami website handles your information: what's collected, why, who helps, and how to get it changed or removed.">
+
+  <section class="section hero">
+    <div class="wrap prose">
+      <span class="eyebrow">Privacy</span>
+      <h1>Your info, <em class="soul">handled with care</em></h1>
+      <p class="lead">
+        The short version: I only collect what I need to write to you and
+        reply to you, I never sell it, and you can ask me to change or
+        delete it any time.
+      </p>
+      <p class="muted">Last updated {updated}</p>
+    </div>
+  </section>
+
+  <section class="section policy" style="padding-top:0;">
+    <div class="wrap prose">
+
+      <h2>Who I am</h2>
+      <p>
+        This website is run by Eliana, the Soul Mami ("I", "me"). When this
+        page talks about "your information," it means anything that
+        identifies you, like your name or email address.
+      </p>
+
+      <h2>What I collect and why</h2>
+      <h3>When you join my Garden</h3>
+      <p>
+        You give me your email address and, if you like, your first name.
+        I use them to send you my letters: journal entries, new songs,
+        tools, and news about the Journaling Hive. Signups are stored with
+        Mailchimp, my email service. Every letter has an unsubscribe link,
+        and one click takes you off the list.
+      </p>
+      <h3>When you write to me through Let's Talk</h3>
+      <p>
+        You give me your name, your email address, and your message. I use
+        them only to reply to you. The form is handled by Netlify, the
+        company that hosts this website.
+      </p>
+      <h3>When you book a session</h3>
+      <p>
+        Booking links open Calendly, which collects the details it needs
+        to schedule your time with me. Calendly's own privacy policy
+        applies there.
+      </p>
+      <h3>When you simply visit</h3>
+      <p>
+        Like most websites, the servers that host this site keep basic
+        technical logs (such as your browser type and IP address) to keep
+        it running and secure. I may also use Google Analytics to see, in
+        general terms, how many people visit and which pages they read.
+        That helps me make the site better. It uses cookies, and it
+        doesn't tell me who you are.
+      </p>
+
+      <h2>Music and video players</h2>
+      <p>
+        Some pages include players from Spotify and YouTube. When you press
+        play, or sometimes just when the page loads, those services may set
+        their own cookies and collect information under their own privacy
+        policies.
+      </p>
+
+      <h2>Who I share it with</h2>
+      <p>
+        Nobody gets your information to market to you. I never sell it or
+        trade it. It's only shared with the services that help me run this
+        site and my letters: Mailchimp (email), Netlify (hosting and the
+        contact form), Calendly (bookings), and Google (analytics). Each of
+        them protects it under their own policies.
+      </p>
+
+      <h2>How long I keep it</h2>
+      <p>
+        You stay on my list until you unsubscribe or ask me to remove you.
+        Messages you send me are kept as long as I need them to reply and
+        follow up, and deleted when they're no longer needed.
+      </p>
+
+      <h2>Your choices</h2>
+      <ul class="policy-list">
+        <li>Unsubscribe from my letters any time, using the link at the bottom of every email.</li>
+        <li>Ask to see the information I have about you, or ask me to correct or delete it.</li>
+        <li>Block or clear cookies in your browser settings. The site still works without them.</li>
+      </ul>
+      <p>
+        To ask for any of these, just <a href="/lets-talk/">send me a note</a>
+        and tell me what you need. I'll take care of it.
+      </p>
+
+      <h2>Kids</h2>
+      <p>
+        This site is meant for adults. I don't knowingly collect
+        information from anyone under 16.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If anything here changes, I'll update this page and the date at
+        the top.
+      </p>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem) 2rem; }
+  .policy h2 { margin-top: 2.5rem; font-size: clamp(1.5rem, 3vw, 1.9rem); }
+  .policy h2:first-child { margin-top: 0; }
+  .policy h3 { margin-top: 1.5rem; margin-bottom: 0.4rem; font-size: 1.15rem; }
+  .policy-list { padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+  .policy-list li::marker { color: var(--honey); }
+</style>

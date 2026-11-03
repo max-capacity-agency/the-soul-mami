@@ -21,8 +21,9 @@ import Base from '../layouts/Base.astro';
         </ul>
       </div>
 
-      <form class="card talk-form" name="lets-talk" method="POST" data-netlify="true">
+      <form class="card talk-form" name="lets-talk" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="lets-talk" />
+        <p class="bot-trap" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" required />

@@ -1,11 +1,12 @@
 ---
 import Bee from './Bee.astro';
+import { SHOW_JOURNAL } from '../lib/site';
 const path = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about/', label: 'About' },
   { href: '/work-with-me/', label: 'Work With Me' },
-  { href: '/journal/', label: 'My Journal' },
+  ...(SHOW_JOURNAL ? [{ href: '/journal/', label: 'My Journal' }] : []),
   { href: '/goodies/', label: 'Free Honey' },
   { href: '/lets-talk/', label: "Let's Talk" },
 ];

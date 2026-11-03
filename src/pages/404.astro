@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Bee from '../components/Bee.astro';
+---
+<Base title="Page not found | The Soul Mami" description="This page wandered off. Find your way back to The Soul Mami.">
+
+  <section class="section lost">
+    <div class="wrap prose center">
+      <div class="lost-bee"><Bee size={44} /></div>
+      <span class="eyebrow">404</span>
+      <h1>This path <em class="soul">wandered off.</em></h1>
+      <p class="lead">
+        The page you're looking for isn't here. Maybe it moved, maybe
+        the link had a typo, maybe it's off somewhere finding itself.
+        Either way, you're not lost. Pick a door.
+      </p>
+      <div class="lost-ctas">
+        <a class="btn btn--primary" href="/">Back home</a>
+        <a class="btn btn--ghost" href="/work-with-me/">Work with me</a>
+        <a class="btn btn--ghost" href="/goodies/">Free honey</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .lost { padding-block: clamp(4rem, 12vw, 8rem); }
+  .lost-bee { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+  .lost-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+  }
+</style>

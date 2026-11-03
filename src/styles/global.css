@@ -458,8 +458,8 @@ html.bi .bi-t.bi-in {
   .btn::before { animation: none; opacity: 0; }
 }
 
-/* Mailchimp's bot-trap field (see lib/mailchimp.ts): kept off-screen, never filled by people. */
-.mc-trap { position: absolute; left: -5000px; }
+/* Bot-trap fields (Mailchimp's and the Let's Talk form's): kept off-screen, never filled by people. */
+.bot-trap { position: absolute; left: -5000px; }
 .garden-form[hidden] { display: none !important; }
 .garden-status { margin: 1.25rem auto 1rem; max-width: 34rem; font-weight: 600; text-wrap: balance; }
 

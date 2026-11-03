@@ -37,7 +37,7 @@ import GardenSignup from '../components/GardenSignup.astro';
         <label class="visually-hidden" for="garden-page-email">Email address</label>
         <input class="garden-email" id="garden-page-email" type="email" name={mailchimp ? 'EMAIL' : 'email'} placeholder="Your email, mami" autocomplete="email" required />
         {mailchimp && (
-          <div class="mc-trap" aria-hidden="true"><input type="text" name={mailchimp.honeypot} tabindex="-1" value="" autocomplete="off" /></div>
+          <div class="bot-trap" aria-hidden="true"><input type="text" name={mailchimp.honeypot} tabindex="-1" value="" autocomplete="off" /></div>
         )}
         <button class="btn btn--primary" type="submit">Plant me in</button>
       </form>

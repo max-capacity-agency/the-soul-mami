@@ -11,6 +11,7 @@ import StatBar from '../components/StatBar.astro';
 import HoneyWaves from '../components/HoneyWaves.astro';
 import Icon from '../components/Icon.astro';
 import { getCollection } from 'astro:content';
+import { SHOW_JOURNAL } from '../lib/site';
 
 const entries = (await getCollection('journal'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -221,7 +222,8 @@ const fmt = (d: Date) =>
     </div>
   </section>
 
-  <!-- Beat: Words -->
+  <!-- Beat: Words (hidden with the journal, see lib/site.ts) -->
+  {SHOW_JOURNAL && (
   <section class="section section--sand">
     <div class="wrap">
       <div class="center prose">
@@ -248,6 +250,7 @@ const fmt = (d: Date) =>
       </p>
     </div>
   </section>
+  )}
 
   <!-- Beat: In Motion -->
   <section class="section gallery" aria-labelledby="gallery-title">

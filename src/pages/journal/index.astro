@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { SHOW_JOURNAL } from '../../lib/site';
+
+// Hidden until the real entries are in: send visitors home.
+if (!SHOW_JOURNAL) return Astro.redirect('/');
 
 const entries = (await getCollection('journal'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());

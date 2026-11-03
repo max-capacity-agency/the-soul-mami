@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import GardenCTA from '../../components/GardenCTA.astro';
 import StackCards from '../../components/StackCards.astro';
+import { SHOW_JOURNAL } from '../../lib/site';
 ---
 <Base hideGarden={true} title="Work With Me | The Soul Mami" description="Three doorways into the same work: the monthly Journaling Hive, 1:1 mentoring with Eliana, and her music. Plus facilitation and speaking for organizations.">
 
@@ -96,7 +97,7 @@ import StackCards from '../../components/StackCards.astro';
       <span class="eyebrow">Real Talk</span>
       <h2>Is this for you?</h2>
       <p><strong>This is your place if</strong> you're ready to get honest, you suspect you're wearing identities that aren't yours, and you want a guide who walks beside you, not a guru with a pedestal and all the answers.</p>
-      <p><strong>This probably isn't your place if</strong> you want someone to fix you. Nothing here is about fixing, because you were never broken. If that sentence annoys you a little… interesting, right? Maybe start with the <a href="/journal/">journal</a> and see how it sits.</p>
+      <p><strong>This probably isn't your place if</strong> you want someone to fix you. Nothing here is about fixing, because you were never broken. If that sentence annoys you a little… interesting, right? Maybe start with {SHOW_JOURNAL ? <a href="/journal/">the journal</a> : <a href="/goodies/">some free honey</a>} and see how it sits.</p>
       <p class="muted">No pitch. No pressure. The gate's open either way.</p>
     </div>
   </section>

@@ -1,5 +1,6 @@
 ---
 import Bee from './Bee.astro';
+import { SHOW_JOURNAL } from '../lib/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -16,7 +17,7 @@ const year = new Date().getFullYear();
       <ul>
         <li><a href="/about/">About</a></li>
         <li><a href="/work-with-me/">Work With Me</a></li>
-        <li><a href="/journal/">My Journal</a></li>
+        {SHOW_JOURNAL && <li><a href="/journal/">My Journal</a></li>}
         <li><a href="/goodies/">Free Honey</a></li>
         <li><a href="/lets-talk/">Let's Talk</a></li>
       </ul>
@@ -32,7 +33,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="wrap legal">
-    <p class="muted">© {year} The Soul Mami. All rights reserved.</p>
+    <p class="muted">© {year} The Soul Mami. All rights reserved. · <a href="/privacy/">Privacy</a></p>
     <p class="muted credit">Website design &amp; development by <a href="https://www.maxcapacityagency.com/" rel="noopener" target="_blank">Max Capacity Marketing</a></p>
   </div>
 </footer>

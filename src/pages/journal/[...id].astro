@@ -1,8 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import { SHOW_JOURNAL } from '../../lib/site';
 
 export async function getStaticPaths() {
+  if (!SHOW_JOURNAL) return [];
   const entries = await getCollection('journal');
   return entries.map((entry) => ({
     params: { id: entry.id },
