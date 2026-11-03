@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { SHOW_JOURNAL } from './src/lib/site.ts';
 
 export default defineConfig({
-  site: 'https://www.thesoulmami.com',
+  site: 'https://thesoulmami.com',
   integrations: [
     react(),
     // Leaves out the 404 page, and the journal while it's hidden.
