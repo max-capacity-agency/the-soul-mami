@@ -4,8 +4,6 @@ date: 2026-08-14
 excerpt: "A note about the identities we wear so long we forget they have zippers."
 ---
 
-*Editor's note: this is a sample entry showing how the journal will look and feel. Eliana's real entries replace these before launch.*
-
 Today I caught myself performing.
 
 Mid-conversation, I heard my own voice doing the thing: the polished, capable, everything's-handled voice. Meanwhile the actual me stood somewhere behind it, waving, like *hello, I'm also here.*

@@ -4,8 +4,6 @@ date: 2026-07-06
 excerpt: "Lessons in trust and timing from a lineage of beekeepers."
 ---
 
-*Editor's note: this is a sample entry showing how the journal will look and feel. Eliana's real entries replace these before launch.*
-
 My people kept bees.
 
 I think about that a lot: how you can't rush a hive. You can't yell at the honey to hurry up. You tend the conditions, you respect the cycles, and the sweetness arrives when it's ready.

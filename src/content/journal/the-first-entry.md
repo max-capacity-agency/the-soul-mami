@@ -4,8 +4,6 @@ date: 2026-09-01
 excerpt: "Why I'm keeping a journal out loud, and what you can expect to find in here."
 ---
 
-*Editor's note: this is a sample entry showing how the journal will look and feel. Eliana's real entries replace these before launch.*
-
 I've kept journals my whole life. Stacks of them. The kind with coffee rings on the covers and sentences that trail off mid-thought because the feeling moved faster than the pen.
 
 This section of the site is me cracking a few of those notebooks open.
