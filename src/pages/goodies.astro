@@ -21,51 +21,51 @@ import Icon from '../components/Icon.astro';
       <!-- TODO: swap the "Coming soon" cards for Eliana's real freebies (PDFs, downloads, links) as they're ready -->
       <div class="card">
         <div class="icon"><Icon name="sprout" size={28} /></div>
-        <h3>Letters from the garden</h3>
+        <h2 class="card-title">Letters from the garden</h2>
         <p>The first goodie is the ongoing one: journal entries, new tools, and first word on everything, straight to your inbox.</p>
         <a class="tag tag--live" href="/garden/">Join free &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="pencil" size={28} /></div>
-        <h3>Journaling prompts to meet yourself</h3>
+        <h2 class="card-title">Journaling prompts to meet yourself</h2>
         <p>A starter set of the kinds of prompts we use in the Journaling Hive, for the mornings you want to go deeper than "today I…".</p>
         <span class="tag">Coming soon</span>
       </div>
       <div class="card">
         <div class="icon"><Icon name="headphones" size={28} /></div>
-        <h3>The songs</h3>
+        <h2 class="card-title">The songs</h2>
         <p>My music is a free tool too. Three songs live now. Press play while you write.</p>
         <a class="tag tag--live" href="/work-with-me/music/">Listen now &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="notes" size={28} /></div>
-        <h3>The Dance Heals playlist</h3>
+        <h2 class="card-title">The Dance Heals playlist</h2>
         <p>My own Spotify playlist for moving your body. Put it on, shake out the week, and let the feelings move through you.</p>
         <a class="tag tag--live" href="https://spoti.fi/2Wi4tnE" target="_blank" rel="noopener">Press play &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="podcast" size={28} /></div>
-        <h3>Podcast conversations</h3>
+        <h2 class="card-title">Podcast conversations</h2>
         <p>Me, talking soul on other people's mics. Start with the latest, on what self care actually demands, or go back to <a href="https://open.spotify.com/episode/00wc0NM5Tpdv3kKIdUvJpS" target="_blank" rel="noopener">my 2022 interview</a>.</p>
         <a class="tag tag--live" href="https://open.spotify.com/episode/2KUt4qjkDIiP5ZF2GPgxay" target="_blank" rel="noopener">Listen to the latest &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="play" size={28} /></div>
-        <h3>My YouTube channel</h3>
+        <h2 class="card-title">My YouTube channel</h2>
         <!-- TODO: add a TEDx talk card once Eliana's talk is public and she sends the link -->
         <p>Life, soul, and everything in between, on video. Pull up a chair and stay a while. My songs have <a href="https://www.youtube.com/@thesoulmamimusic" target="_blank" rel="noopener">their own channel</a> too.</p>
         <a class="tag tag--live" href="https://www.youtube.com/@theSoulMami" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="books" size={28} /></div>
-        <h3>The books</h3>
+        <h2 class="card-title">The books</h2>
         <!-- TODO: second book title and link from Eliana -->
         <p>Two books so far, more life to write about. Start with Mind Your Business.</p>
         <a class="tag tag--live" href="https://amzn.to/2P3bhlA" target="_blank" rel="noopener">Get the book &rarr;</a>
       </div>
       <div class="card">
         <div class="icon"><Icon name="candle" size={28} /></div>
-        <h3>An emotional first-aid practice</h3>
+        <h2 class="card-title">An emotional first-aid practice</h2>
         <p>What I actually do when a big feeling hits: the alchemist's short version, written down for you.</p>
         <span class="tag">Coming soon</span>
       </div>
@@ -88,6 +88,7 @@ import Icon from '../components/Icon.astro';
     .honey-grid > *,
     .honey-grid > :nth-child(3n+1):nth-last-child(2) { grid-column: auto; }
   }
+  .card-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
   .icon {
     color: var(--bark);
     width: 56px;

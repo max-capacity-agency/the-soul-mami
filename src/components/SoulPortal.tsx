@@ -33,7 +33,7 @@ function Opening() {
 function Scene() {
   return (
     <div className="sp-scene">
-      <img src="/images/eliana-home.jpg" alt="" decoding="async" fetchPriority="high" />
+      <img src="/images/eliana-home-1600.webp" srcSet="/images/eliana-home-800.webp 800w, /images/eliana-home-1600.webp 1600w" sizes="100vw" alt="" decoding="async" fetchPriority="high" />
       <div className="sp-shade" />
     </div>
   );

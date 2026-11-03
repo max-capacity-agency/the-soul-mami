@@ -202,6 +202,10 @@ em.soul {
   box-shadow: 0 24px 60px -30px rgba(47, 35, 24, 0.45);
 }
 .photo--arch { border-radius: var(--radius-arch); }
+/* Hero arch photos: size comes from width/height on phones and from the inline max-height
+   in the two-column layout, so the box is known before the image loads (no layout shift). */
+.hero .photo--arch { height: auto; }
+@media (min-width: 861px) { .hero .photo--arch { height: 100vh; } }
 
 /* Placeholder photo blocks (until Eliana's photos arrive) ------------------ */
 

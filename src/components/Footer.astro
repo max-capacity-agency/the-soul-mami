@@ -59,7 +59,7 @@ const year = new Date().getFullYear();
     font-size: 1.15rem;
     color: var(--espresso);
   }
-  .brand p { margin-top: 0.9rem; max-width: 26rem; }
+  .brand p { margin-top: 0.9rem; max-width: 26rem; color: var(--bark); }
   h3 {
     font-size: 1.05rem;
     margin-bottom: 0.8rem;
@@ -77,6 +77,8 @@ const year = new Date().getFullYear();
     gap: 0.4rem 2rem;
   }
   .legal p { margin: 0; color: var(--bark); }
+  .legal a { color: inherit; text-underline-offset: 0.2em; }
+  .legal a:hover { color: var(--clay); }
   .credit a { color: inherit; text-underline-offset: 0.2em; white-space: nowrap; }
   .credit a:hover { color: var(--clay); }
   @media (max-width: 760px) {

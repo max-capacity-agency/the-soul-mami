@@ -20,12 +20,12 @@ const isActive = (href: string) =>
       <span>The Soul Mami</span>
     </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
-    <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-controls="site-nav" />
+    <label for="nav-toggle" class="nav-burger" aria-hidden="true">
       <span></span><span></span><span></span>
     </label>
 
-    <nav aria-label="Main">
+    <nav id="site-nav" aria-label="Main">
       <ul>
         {links.map((l) => (
           <li>
@@ -106,6 +106,16 @@ const isActive = (href: string) =>
     nav { display: none; width: 100%; }
     .bar { flex-wrap: wrap; }
     .nav-toggle:checked ~ nav { display: block; }
+    /* Keep the checkbox reachable by keyboard (Tab, then Space); the burger shows its focus. */
+    .nav-toggle {
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .nav-toggle:focus-visible ~ .nav-burger { outline: 2px solid var(--clay); outline-offset: 4px; border-radius: 6px; }
     .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
     .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
     .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
