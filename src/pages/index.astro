@@ -14,7 +14,8 @@ import { getCollection } from 'astro:content';
 import { SHOW_JOURNAL } from '../lib/site';
 
 const entries = (await getCollection('journal'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  // Pinned entries first, then newest first.
+  .sort((a, b) => Number(b.data.pinned) - Number(a.data.pinned) || b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
 const fmt = (d: Date) =>
@@ -235,7 +236,7 @@ const fmt = (d: Date) =>
           here.
         </p>
       </div>
-      <div class="grid-3">
+      <div class:list={["grid-3 entries", { "entries--short": entries.length < 3 }]}>
         {entries.map((e) => (
           <a class="card entry" href={`/journal/${e.id}/`}>
             <p class="muted entry-date">{fmt(e.data.date)}</p>
@@ -257,7 +258,7 @@ const fmt = (d: Date) =>
     <div class="wrap">
       <div class="center prose">
         <span class="eyebrow">In Motion</span>
-        <h2 id="gallery-title">Moments from the circle</h2>
+        <h2 id="gallery-title">Moments in community</h2>
       </div>
       <SoulGallery client:visible />
     </div>
@@ -487,6 +488,9 @@ const fmt = (d: Date) =>
   .entry { text-decoration: none; color: inherit; display: block; }
   .entry-date { font-size: 0.85rem; margin-bottom: 0.4rem; }
   .section--sand .grid-3 { margin-top: 2.5rem; }
+  /* Fewer than three entries: centre the cards at the same width instead of leaving an empty column. */
+  .entries--short { grid-template-columns: repeat(auto-fit, minmax(0, 23rem)); justify-content: center; }
+  @media (max-width: 860px) { .entries--short { grid-template-columns: 1fr; } }
 
   /* Gallery */
   .gallery { padding-bottom: clamp(2rem, 5vw, 3.5rem); }

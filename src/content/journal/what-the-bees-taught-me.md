@@ -1,17 +1,15 @@
 ---
 title: "What the bees taught me"
-date: 2026-07-06
+date: 2026-10-01
 excerpt: "Lessons in trust and timing from a lineage of beekeepers."
 ---
 
-My people kept bees.
+My grandfather was a beekeeper.
 
-I think about that a lot: how you can't rush a hive. You can't yell at the honey to hurry up. You tend the conditions, you respect the cycles, and the sweetness arrives when it's ready.
+I think about what his inner world was like. What did he think about while he cared for them? Was he a master in patience?
 
-We treat ourselves like machines. Produce more, feel less, optimize everything. And then we're shocked when our inner life goes quiet.
+I've been studying bees for the last 3 years and I've learned so much from them. I've learned that cycles and the process of things need to be respected. I've learned that everyone has a role to play in the ecosystem. I've learned that Queens are made through intentional care. I've learned that rituals and routines move things along.
 
-But you're not a machine, mami. You're a hive. You're an ecosystem. You have seasons.
+I learned that just like bees, we must learn to move through our different seasons. Some seasons are for collecting pollen and living out loud. Other seasons are for making the honey with what you collected. And some seasons are for rest. Quiet. Nothing needs to be produced.
 
-Some seasons are for blooming loud. Some are for going inward and making honey nobody sees yet.
-
-If you're in a quiet season right now: nothing is wrong with you. Something is being made.
+I love knowing that every day I am getting better at honoring these cycles. But damn, why am I still so restless sometimes. Maybe it's the conditioning of producing that is still being unlearned. Sigh.

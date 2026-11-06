@@ -7,7 +7,8 @@ import { SHOW_JOURNAL } from '../../lib/site';
 if (!SHOW_JOURNAL) return Astro.redirect('/');
 
 const entries = (await getCollection('journal'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  // Pinned entries first, then newest first.
+  .sort((a, b) => Number(b.data.pinned) - Number(a.data.pinned) || b.data.date.valueOf() - a.data.date.valueOf());
 
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });

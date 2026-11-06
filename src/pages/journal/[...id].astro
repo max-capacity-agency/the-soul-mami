@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { SHOW_JOURNAL } from '../../lib/site';
+import { commentsFor } from '../../lib/comments';
 
 export async function getStaticPaths() {
   if (!SHOW_JOURNAL) return [];
@@ -14,6 +15,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const comments = await commentsFor(entry.id);
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 ---
@@ -27,6 +29,42 @@ const fmt = (d: Date) =>
       <div class="body">
         <Content />
       </div>
+      <section class="write-back" id="write-back" aria-labelledby="write-back-title">
+        <h2 id="write-back-title">Write back</h2>
+        <p>If something here moved in you, leave it below. Your name and words will show up on this page.</p>
+        {comments.length > 0 && (
+          <ol class="comments">
+            {comments.map((c) => (
+              <li class="comment">
+                <p class="comment-meta"><strong>{c.name}</strong> <span class="muted">{fmt(c.date)}</span></p>
+                <p class="comment-text">{c.comment}</p>
+              </li>
+            ))}
+          </ol>
+        )}
+        <form
+          class="card talk-form"
+          name="journal-comments"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action={`/journal/${entry.id}/?sent=1#write-back`}
+        >
+          <input type="hidden" name="form-name" value="journal-comments" />
+          <input type="hidden" name="entry" value={entry.id} />
+          <p class="bot-trap" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="field">
+            <label for="comment-name">Your name</label>
+            <input id="comment-name" name="name" type="text" maxlength="60" required />
+          </div>
+          <div class="field">
+            <label for="comment-text">Your words</label>
+            <textarea id="comment-text" name="comment" rows="5" maxlength="2000" required></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send it</button>
+          <p class="talk-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </section>
       <div class="back">
         <a href="/journal/">&larr; Back to the archives</a>
       </div>
@@ -43,4 +81,47 @@ const fmt = (d: Date) =>
   .body :global(em):first-of-type { color: var(--stone); }
   .back { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--sand-deep); }
   .back a { font-weight: 700; text-decoration: none; }
+
+  /* Write back: comments, then a form like Let's Talk's */
+  .write-back { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--sand-deep); }
+  .write-back h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+  .comments { list-style: none; margin: 1.5rem 0 2rem; padding: 0; display: grid; gap: 1.25rem; }
+  .comment { padding-bottom: 1.25rem; border-bottom: 1px solid var(--sand-deep); }
+  .comment-meta { margin: 0 0 0.35rem; }
+  .comment-meta .muted { font-size: 0.9rem; margin-left: 0.4rem; }
+  .comment-text { margin: 0; white-space: pre-line; }
+  .talk-form { display: grid; gap: 1.1rem; margin-top: 1.5rem; }
+  .talk-form:hover { transform: none; box-shadow: none; }
+  .field { display: grid; gap: 0.2rem; }
+  .talk-status { margin: 0; font-weight: 600; }
 </style>
+
+<script>
+  // Sends the comment to Netlify Forms without leaving the page. Without JavaScript
+  // the form still posts, and its action brings the reader back to this entry.
+  const form = document.querySelector<HTMLFormElement>('form[name="journal-comments"]');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('.talk-status');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const label = button?.textContent ?? '';
+    const show = (text: string) => { if (status) { status.textContent = text; status.hidden = false; } };
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        show('Thank you for writing back. Your words will show up here in a minute or two.');
+      } catch {
+        show("That didn't go through. Please try again in a moment.");
+      } finally {
+        if (button) { button.disabled = false; button.textContent = label; }
+      }
+    });
+  }
+</script>

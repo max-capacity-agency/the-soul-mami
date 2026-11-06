@@ -7,6 +7,7 @@ const journal = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     excerpt: z.string(),
+    pinned: z.boolean().default(false),
   }),
 });
 
