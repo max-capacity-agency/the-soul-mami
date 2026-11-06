@@ -13,17 +13,17 @@ import HoneyWaves from '../../components/HoneyWaves.astro';
         <span class="eyebrow">1:1 · You and Me</span>
         <h1>Mentoring for the <em class="soul">real you</em></h1>
         <p class="lead">
-          Not coaching-by-formula. Not therapy. A real conversation
-          with someone who's gone through it, where we take off the
-          layers that were never yours and rebuild your trust in the
-          one person you can't leave: you.
+          What if I told you that you already are everything you came
+          to be. It's not about becoming you. It's about taking off the
+          layers that were never yours to wear. Let's unlearn together.
+          I will show you how to rebuild self-trust and self-belonging.
         </p>
         <div class="cta-row">
           <!-- TODO: replace with Eliana's booking link (Calendly or similar) -->
           <a class="btn btn--primary" href="/lets-talk/">Start the conversation</a>
           <a class="btn btn--ghost" href="#what">What we work on</a>
         </div>
-        <p class="muted" style="margin-top:1rem;">No pitch. No pressure. Just a conversation to see if we fit.</p>
+        <p class="muted" style="margin-top:1rem;">Just a conversation to see if we fit.</p>
       </div>
       <img class="photo photo--arch" src="/images/eliana-river-1200.webp" srcset="/images/eliana-river-600.webp 600w, /images/eliana-river-1200.webp 1200w" sizes="(min-width: 861px) 504px, 100vw" width="1200" height="800" alt="Eliana standing peacefully in a river, eyes closed, hand to her heart" fetchpriority="high" style="max-height:460px;" />
     </div>
@@ -32,14 +32,56 @@ import HoneyWaves from '../../components/HoneyWaves.astro';
   <!-- From here down, each section stacks over the last like a card. -->
   <div class="stack">
 
+  <!-- Beat: Timing -->
+  <section class="section section--sand">
+    <div class="wrap prose">
+      <span class="eyebrow">Timing</span>
+      <h2>When people usually come to me</h2>
+      <ol class="timing-list">
+        <li><strong>01 · The quiet crisis.</strong> Everything looks fine on paper and feels hollow in your chest.</li>
+        <li><strong>02 · The threshold.</strong> A breakup, a career shift, a loss: an ending that's secretly an invitation.</li>
+        <li><strong>03 · The overflow.</strong> Emotions running the show, and you're tired of outrunning them.</li>
+        <li><strong>04 · The whisper.</strong> Something in you wants to be expressed (a project, a change, a truth), and it's getting louder.</li>
+      </ol>
+      <p>If one of those made your stomach flip a little: that's the one. Reach out.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="/lets-talk/">Start the conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beat: Paths -->
+  <section class="section" id="paths">
+    <div class="wrap">
+      <div class="prose center" style="margin-inline:auto;">
+        <span class="eyebrow">Your Path</span>
+        <h2>Two ways to work with me</h2>
+      </div>
+      <div class="grid-2 paths" style="margin-top:2.5rem;">
+        <div class="card">
+          <h3>Human Design Session</h3>
+          <p class="muted">1:1 session · $350</p>
+          <p>Learn your default setting. Book a 1:1 Human Design session and get your identity blueprint.</p>
+          <a class="btn btn--primary" href="https://calendly.com/thesoulmami/90" target="_blank" rel="noopener">Book a session</a>
+        </div>
+        <div class="card">
+          <h3>Awaken Your Soul</h3>
+          <p class="muted">Self-paced course</p>
+          <p>My self-paced course. Do the work on your own time.</p>
+          <a class="btn btn--primary" href="https://soullifeacademy.thinkific.com/courses/awakenyoursoul" target="_blank" rel="noopener">Start the course</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Beat: Reality -->
   <section class="section section--sand" id="what">
     <div class="wrap prose">
       <span class="eyebrow">The Work</span>
       <h2>What we actually work on</h2>
       <p class="lead">
-        You bring what's real. I bring a life fully lived,
-        200+ circles of practice, and a very high tolerance for the
+        You bring what's alive for you. I bring a life fully lived, my
+        ancestral wisdom and gifts, and a very high tolerance for the
         emotional deep end.
       </p>
       <ul class="work-list">
@@ -48,34 +90,6 @@ import HoneyWaves from '../../components/HoneyWaves.astro';
         <li><strong>The emotions.</strong> I'm an emotional alchemist. Bring me any feeling and we'll transmute it and get the lesson. Nothing you carry is too much.</li>
         <li><strong>The expression.</strong> There's stuff only you came here to say and make. We get it out of your head and into the world.</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- Beat: Process -->
-  <section class="section">
-    <div class="wrap">
-      <div class="prose center" style="margin-inline:auto;">
-        <span class="eyebrow">The Path</span>
-        <h2>How it works</h2>
-      </div>
-      <div class="grid-3" style="margin-top:2.5rem;">
-        <div class="card">
-          <span class="step-num">01</span>
-          <h3>We talk</h3>
-          <p>A no-pressure conversation. You tell me what's alive for you; we both feel out whether this is a fit.</p>
-        </div>
-        <div class="card">
-          <span class="step-num">02</span>
-          <h3>We commit</h3>
-          <!-- TODO: session format, cadence, package options, and pricing from Eliana -->
-          <p>We shape the container together: cadence, focus, and the honest agreements that make deep work possible.</p>
-        </div>
-        <div class="card">
-          <span class="step-num">03</span>
-          <h3>We go</h3>
-          <p>Session by session, you come back to yourself. Less performing, more expressing. Less loop, more life.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -110,24 +124,6 @@ import HoneyWaves from '../../components/HoneyWaves.astro';
     </div>
   </section>
 
-  <!-- Beat: Timing -->
-  <section class="section">
-    <div class="wrap prose">
-      <span class="eyebrow">Timing</span>
-      <h2>When people usually come to me</h2>
-      <ol class="timing-list">
-        <li><strong>01 · The quiet crisis.</strong> Everything looks fine on paper and feels hollow in your chest.</li>
-        <li><strong>02 · The threshold.</strong> A breakup, a career shift, a loss: an ending that's secretly an invitation.</li>
-        <li><strong>03 · The overflow.</strong> Emotions running the show, and you're tired of outrunning them.</li>
-        <li><strong>04 · The whisper.</strong> Something in you wants to be expressed (a project, a change, a truth), and it's getting louder.</li>
-      </ol>
-      <p>If one of those made your stomach flip a little: that's the one. Reach out.</p>
-      <div class="cta-row">
-        <a class="btn btn--primary" href="/lets-talk/">Start the conversation</a>
-      </div>
-    </div>
-  </section>
-
   <GardenCTA />
 
   </div>
@@ -138,12 +134,9 @@ import HoneyWaves from '../../components/HoneyWaves.astro';
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
-  .step-num {
-    font-family: var(--font-display);
-    font-weight: 400;
-    color: var(--honey);
-    letter-spacing: 0.1em;
-  }
+  /* Path cards: equal height, buttons lined up at the bottom. */
+  .paths .card { display: flex; flex-direction: column; align-items: flex-start; }
+  .paths .card .btn { margin-top: auto; }
   .work-list { list-style: none; margin: 0; padding: 0; }
   .work-list li {
     padding: 0.85rem 0 0.85rem 1.9rem;

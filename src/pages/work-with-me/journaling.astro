@@ -42,11 +42,19 @@ import SoulGallery from '../../components/SoulGallery';
         and what you need. Journaling is the shovel.
       </p>
       <p>
-        Alone, most of us journal for three days and quit, or circle
-        the same page of surface thoughts. In a circle, with real
-        prompts and real humans, something else happens. You go
-        deeper, you stay honest, and you keep coming back. That's the
-        Hive part: we hold each other to our own depth.
+        Journaling is a cheat code for your brain because it lowers
+        stress, boosts your mood, and even keeps your immune system
+        strong. When you dump your messy thoughts onto paper, it calms
+        down the brain's panic button and forces you to process things
+        rationally. Think of it as a quick mental declutter that gets rid
+        of all that brain fog so you can actually focus on what matters,
+        living your life.
+      </p>
+      <p>
+        Alone, most of us journal for three days and quit. Together
+        something else happens. You go deeper, you stay honest, and you
+        keep coming back. That's the Hive part: we hold each other to our
+        own depth.
       </p>
     </div>
   </section>
@@ -75,7 +83,7 @@ import SoulGallery from '../../components/SoulGallery';
           <p>Only what you want, only if you want. Being witnessed is medicine; so is witnessing. You leave lighter, clearer, and more you.</p>
         </div>
       </div>
-      <img class="photo hive-shot" src="/images/hive-zoom.jpg" width="820" height="460" alt="Eliana and members of the Journaling Hive writing together on a video call" loading="lazy" />
+      <img class="photo hive-shot" src="/images/founding-members.jpg" width="1600" height="933" alt="The founding members of the Journaling Hive together on a video call" loading="lazy" />
       <!-- TODO: session length, time zone, location (virtual/in-person), price, and platform details from Eliana -->
       <p class="center muted" style="margin-top:2rem;">First Sunday of every month. Full details land in your inbox when you join the garden or reach out.</p>
     </div>
@@ -86,7 +94,7 @@ import SoulGallery from '../../components/SoulGallery';
     <HoneyWaves />
     <div class="wrap">
       <div class="prose center" style="margin-inline:auto;">
-        <span class="eyebrow">From the Circle</span>
+        <span class="eyebrow">From the Hive</span>
         <h2>What people say after they write</h2>
       </div>
       <div class="grid-3" style="margin-top:2.5rem;">
@@ -94,19 +102,19 @@ import SoulGallery from '../../components/SoulGallery';
           <blockquote>
             <p>"Everything! Eliana holds such an excellent space for meaningful journaling. What keeps bringing me back is the community. There is so much respect, wisdom, and equal opportunity to connect, express, share and collect insights that inspire and motivate me. I really value these monthly sessions and wouldn't change a thing."</p>
           </blockquote>
-          <figcaption>Circle member</figcaption>
+          <figcaption>Hive member</figcaption>
         </figure>
         <figure class="card quote">
           <blockquote>
             <p>"Thank you all for being here to co-create this beautiful and safe space, especially to Eliana for hosting it. This nurtures me throughout the month."</p>
           </blockquote>
-          <figcaption>Circle member</figcaption>
+          <figcaption>Hive member</figcaption>
         </figure>
         <figure class="card quote">
           <blockquote>
             <p>"I love all the prompts from this recent journal session. Thank you so much for the invite, and the facility for souls to be nourished."</p>
           </blockquote>
-          <figcaption>Circle member</figcaption>
+          <figcaption>Hive member</figcaption>
         </figure>
       </div>
     </div>
@@ -162,11 +170,12 @@ import SoulGallery from '../../components/SoulGallery';
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
   .gallery { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.6rem; }
-  /* The Hive on a Sunday, under the three steps. Shown no wider than the photo itself. */
+  /* The founding members' Zoom grid under the three steps: always shown whole, wide enough for the names. */
   .hive-shot {
     display: block;
-    max-width: 820px;
+    max-width: 960px;
     height: auto;
+    object-fit: contain; /* the whole Zoom grid shows, nobody cropped out */
     margin: 2.5rem auto 0;
   }
   .step-num {

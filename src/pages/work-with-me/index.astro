@@ -4,13 +4,14 @@ import GardenCTA from '../../components/GardenCTA.astro';
 import StackCards from '../../components/StackCards.astro';
 import { SHOW_JOURNAL } from '../../lib/site';
 ---
-<Base hideGarden={true} title="Work With Me | The Soul Mami" description="Three doorways into the same work: the monthly Journaling Hive, 1:1 mentoring with Eliana, and her music. Plus facilitation and speaking for organizations.">
+<Base hideGarden={true} title="Work With Me | The Soul Mami" description="Four doorways into the same work: free tools, the monthly Journaling Hive, 1:1 mentoring with Eliana, and her music. Plus facilitation and speaking for organizations.">
 
   <!-- Beat: Promise -->
   <section class="section hero">
     <div class="wrap prose center">
       <span class="eyebrow">Work With Me</span>
-      <h1>Come home to <em class="soul">yourself.</em></h1>
+      <h1>“There is only one journey: going inside <em class="soul">yourself</em>”</h1>
+      <p class="rilke">: Rainer Maria Rilke</p>
       <p class="lead">
         Everything here serves the same three vows: know yourself, be
         with yourself, and live as yourself. Pick the doorway that calls
@@ -26,10 +27,23 @@ import { SHOW_JOURNAL } from '../../lib/site';
   <section class="section doors">
     <div class="wrap drawer-stack">
 
-      <a class="card drawer-row" href="/work-with-me/journaling/">
+      <a class="card drawer-row" href="/goodies/">
+        <img class="photo drawer-media" src="/images/eliana-gold.jpg" alt="Eliana laughing in a honey-gold studio, one hand held out as if offering something" loading="lazy" style="object-position: 40% 20%;" />
+        <div>
+          <span class="eyebrow">Door One · Whenever</span>
+          <h2>Free Honey (on the house)</h2>
+          <p class="lead">
+            Tools for self-connection, free for the taking. Start anywhere.
+            Take what you need, share what helps, come back for more.
+          </p>
+          <span class="drawer-link">Take what you need &rarr;</span>
+        </div>
+      </a>
+
+      <a class="card drawer-row drawer-row--flip" href="/work-with-me/journaling/">
         <img class="photo drawer-media" src="/images/hive-zoom.jpg" alt="Eliana and members of the Journaling Hive writing together on a video call" loading="lazy" style="object-position: left top;" />
         <div>
-          <span class="eyebrow">Door One · Monthly</span>
+          <span class="eyebrow">Door Two · Monthly</span>
           <h2>The Journaling Hive</h2>
           <p class="lead">
             First Sunday of every month. We gather, we drop in, we
@@ -40,10 +54,10 @@ import { SHOW_JOURNAL } from '../../lib/site';
         </div>
       </a>
 
-      <a class="card drawer-row drawer-row--flip" href="/work-with-me/mentoring/">
+      <a class="card drawer-row" href="/work-with-me/mentoring/">
         <img class="photo drawer-media" src="/images/eliana-smile.jpg" alt="Eliana smiling warmly with a painted line down her face, trees behind her" loading="lazy" />
         <div>
-          <span class="eyebrow">Door Two · 1:1</span>
+          <span class="eyebrow">Door Three · 1:1</span>
           <h2>Mentoring</h2>
           <p class="lead">
             Just you and me, working through what's real. Untangling
@@ -54,10 +68,10 @@ import { SHOW_JOURNAL } from '../../lib/site';
         </div>
       </a>
 
-      <a class="card drawer-row" href="/work-with-me/music/">
+      <a class="card drawer-row drawer-row--flip" href="/work-with-me/music/">
         <img class="photo drawer-media" src="/images/eliana-art.jpg" alt="Eliana in a sculptural studio pose holding a large leaf, warm earth tones" loading="lazy" />
         <div>
-          <span class="eyebrow">Door Three · Anytime</span>
+          <span class="eyebrow">Door Four · Anytime</span>
           <h2>La Musica</h2>
           <p class="lead">
             Songs from the same soul that holds the circles. Free,
@@ -98,7 +112,7 @@ import { SHOW_JOURNAL } from '../../lib/site';
       <h2>Is this for you?</h2>
       <p><strong>This is your place if</strong> you're ready to get honest, you suspect you're wearing identities that aren't yours, and you want a guide who walks beside you, not a guru with a pedestal and all the answers.</p>
       <p><strong>This probably isn't your place if</strong> you want someone to fix you. Nothing here is about fixing, because you were never broken. If that sentence annoys you a little… interesting, right? Maybe start with {SHOW_JOURNAL ? <a href="/journal/">the journal</a> : <a href="/goodies/">some free honey</a>} and see how it sits.</p>
-      <p class="muted">No pitch. No pressure. The gate's open either way.</p>
+      <p class="muted">The gate's open either way.</p>
     </div>
   </section>
 
@@ -111,6 +125,9 @@ import { SHOW_JOURNAL } from '../../lib/site';
 
 <style>
   .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  /* The Rilke quote is twice as long as a usual heading: a smaller size keeps it to three lines. */
+  .hero h1 { font-size: clamp(2rem, 4.2vw, 3.3rem); }
+  .rilke { font-weight: 700; font-size: 0.9rem; color: var(--stone); margin-top: -0.4rem; }
   .doors { padding-top: clamp(2.5rem, 5vw, 4rem); }
   .drawer-stack { display: grid; gap: 2rem; }
   .drawer-row {
