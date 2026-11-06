@@ -7,7 +7,6 @@
     <li><strong>200+</strong><span>circles, cohorts &amp; workshops held</span></li>
     <li><strong>TEDx</strong><span>speaker</span></li>
     <li><strong>Two books</strong><span>written &amp; published</span></li>
-    <li><strong>Monthly</strong><span>Journaling Hive, first Sundays</span></li>
   </ul>
 </section>
 
@@ -17,7 +16,7 @@
     list-style: none;
     margin-block: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     text-align: center;
   }
@@ -31,6 +30,7 @@
   }
   .stats span { display: block; line-height: 1.45; font-size: 0.88rem; color: #cbb99f; }
   @media (max-width: 700px) {
-    .stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .stats strong { font-size: 1.5rem; }
   }
 </style>

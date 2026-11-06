@@ -13,7 +13,7 @@ const CIRCLE = {
   picnic: { src: "/images/gallery-9.webp", alt: "A picnic on blankets under the trees by a lake" },
 };
 
-/** Homepage "Moments from the circle". */
+/** Homepage "Moments in community". */
 const HOME = [CIRCLE.night, CIRCLE.cacao, CIRCLE.kitchen, CIRCLE.hammock, CIRCLE.blankets, CIRCLE.workshop, CIRCLE.deck];
 /** Journaling Hive "Moments from the Hive": adds the Hive photos and centres on the blankets photo. The lake
  *  group is left out because it is already that page's hero. The middle five (shown on phones) hold both new ones. */

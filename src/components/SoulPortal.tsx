@@ -14,7 +14,7 @@ function Opening() {
       </h1>
       <div className="sp-below">
         <p className="sp-sub">
-          Journaling circles, 1:1 mentoring, analog meet-ups, and music for coming home to who you already are.
+          Community, journaling circles, mentorship, meet-ups, and music for coming home to yourself.
         </p>
         <div className="sp-scroll" aria-hidden="true">
           <span className="sp-scroll-icon">
